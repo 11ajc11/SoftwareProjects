@@ -1,21 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-from cities_light import
-from django_countries.fields import CountryField
-# Create your models here.
 
-from jobs.models import Job
-from recruit.choices import (EDU_CHOICES, Skills_choices, CITIES_CHOICES, MAJOR_CHOICES)
+from employment_portal.choices import (EDU_CHOICES, Skills_choices,
+                                       CITIES_CHOICES, MAJOR_CHOICES, YEARS_OF_EXPERIENCE)
 
-class Country(models.Model):
-	name = models.CharField(max_length= 30)
-
-	def __str__(self):
-		return self.name
-
-class City(models.Model):
-	return city
 class Candidate(models.Model):
 	#Personal Info
 	user = models.OneToOneField(User, on_delete= models.CASCADE)
@@ -28,6 +17,10 @@ class Candidate(models.Model):
 	                             choices = EDU_CHOICES)
 	education_major = models.CharField(max_length= 300,
 	                                   choices = MAJOR_CHOICES)
+	education_university = models.CharField(max_length= 45)
+	years_of_experience = models.CharField(max_length=40, choices= 'YEARS_OF_EXPERIENCE')
+	# Graduation Choices = 2018,2019,2020, 2021, Not applicable
+	Graduation = models.CharField(choices=Graduation_Choices, max_length= 40)
 
 	#Candidate Image
 	image = models.ImageField(upload_to= 'company/%Y/%m/%d')
@@ -40,13 +33,13 @@ class Candidate(models.Model):
 
 	#Saving an image
 	def save(self, *args, **kwargs):
-		from recruit.utils import generate_thumbnail
+		from employment_portal.utils import generate_thumbnail
 		self.thumb = generate_thumbnail(self.image)
 		super(Candidate, self).save(*args, **kwargs)
 
 	#Deleting an image
 	def delete(self, *args, **kwargs):
-		from recruit.utils import delete_from_s3
+		from employment_portal.utils import delete_from_s3
 		delete_from_s3([self.image, self.thumb])
 		super(Candidate, self).delete(*args, **kwargs)
 
@@ -68,27 +61,48 @@ class CandidateSkills(models.Model):
 	)
 	skills_choices_2 = models.CharField(
 		max_length=25,
-		choices=Skills_choices, unique=True
+		choices=Skills_choices, unique=True,
+		null=True
 	)
 	skills_choices_3 = models.CharField(
 		max_length=25,
-		choices=Skills_choices, unique=True
+		choices=Skills_choices, unique=True,
+		null=True
 	)
 	skills_choices_4 = models.CharField(
 		max_length=25,
-		choices=Skills_choices, unique=True
+		choices=Skills_choices, unique=True,
+		null=True
 	)
 	skills_choices_5 = models.CharField(
 		max_length=25,
-		choices=Skills_choices, unique=True
+		choices=Skills_choices, unique=True,
+		null=True
 	)
 	skills_choices_6 = models.CharField(
 		max_length=25,
-		choices=Skills_choices, unique=True
+		choices=Skills_choices, unique=True,
+		null= True
 	)
 	skills_choices_7 = models.CharField(
 		max_length=25,
-		choices=Skills_choices, unique=True
+		choices=Skills_choices, unique=True,
+		null = True
+	)
+	skills_choices_8 = models.CharField(
+		max_length=25,
+		choices=Skills_choices, unique=True,
+		null = True
+	)
+	skills_choices_9 = models.CharField(
+		max_length=25,
+		choices=Skills_choices, unique=True,
+		null = True
+	)
+	skills_choices_10 = models.CharField(
+		max_length=25,
+		choices=Skills_choices, unique=True,
+		null = True
 	)
 
 class CandidateResume(models.Model):
@@ -99,6 +113,6 @@ class CandidateResume(models.Model):
 	date_created = models.DateTimeField(auto_now_add=True,auto_now = False)
 
 	def delete(self, *args, **kwargs):
-		from recruit.utils import delete_from_s3
+		from employment_portal.utils import delete_from_s3
 		delete_from_s3([self.resume])
 		super(CandidateResume, self).delete(*args, **kwargs)

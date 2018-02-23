@@ -2,7 +2,7 @@ from django.db import models
 
 from recruiters.models import Recruiter
 from employer_admin.models import Employer
-from recruit.choices import CITY_CHOICES
+from employer_portal.choices import (CITY_CHOICES, JS_CHOICES)
 
 class City(models.Model):
 	city = models.CharField(
@@ -12,7 +12,7 @@ class City(models.Model):
 		return self.city
 
 class Job(models.Model):
-	employer - models.ForeignKey(Employer, on_delete=models.CASCADE,
+	Employer_Name - models.ForeignKey(Employer, on_delete=models.CASCADE,
 	                             related_name='jobs')
 	job_title = models.CharField(max_length=200)
 	location=models.CharField(choices= (('onsite', 'On-site'),('remote','Remote')), max_length=50,
@@ -34,4 +34,53 @@ class Job(models.Model):
 
 class JobRequirements(models.Model):
 	job = models.OneToOneField(Job, on_delete = models.CASCADE)
-	job_skills
+	job_skills_1 = models.CharField(
+		max_length= 25,
+		choices= JS_choices, unique= True
+	)
+	job_skills_2 = models.CharField(
+		max_length=25,
+		choices=JS_choices, unique=True,
+		null=True
+	)
+	job_skills_3 = models.CharField(
+		max_length=25,
+		choices=JS_choices, unique=True,
+		null=True
+	)
+	job_skills_4 = models.CharField(
+		max_length=25,
+		choices=JS_choices, unique=True,
+		null=True
+	)
+	job_skills_5 = models.CharField(
+		max_length=25,
+		choices=JS_choices, unique=True,
+		null=True
+	)
+	job_skills_6 = models.CharField(
+		max_length=25,
+		choices=JS_choices, unique=True,
+		null=True
+	)
+	job_skills_7 = models.CharField(
+		max_length=25,
+		choices=JS_choices, unique=True,
+		null=True
+	)
+	job_skills_8 = models.CharField(
+		max_length=25,
+		choices=JS_choices, unique=True,
+		null=True
+	)
+	job_skills_9 = models.CharField(
+		max_length=25,
+		choices=JS_choices, unique=True,
+		null=True
+	)
+	job_skills_10 = models.CharField(
+		max_length=25,
+		choices=JS_choices, unique=True,
+		null=True
+	)
+
