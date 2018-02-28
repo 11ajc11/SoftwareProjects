@@ -13,16 +13,20 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="company_profile.css" rel="stylesheet">
+    <link href="GeneralStyle.css" rel="stylesheet">
   </head>
-
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Home</li>
+  </ol>
+</nav>
   <body class="bg-light">
 
     <div class="container">
       <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
         <img class="img-fluid" style="width: 600px" src="demopic.JPG">
-        <h2>Company Name</h2>
+        <h2>Company Name</h2><a class="btn-sm btn-secondary" href="edit_company_profile.html" >Edit Profile</a>
         <p class="lead">Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It’s not a story the Jedi would tell you. It’s a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic. He could save others from death, but not himself.</p>
       </div>
 
@@ -43,6 +47,12 @@
         <hr class="mb-4">
         </div>
       </div>
+
+    <div class="row">
+        <div class="col-sm-4 "><a class="btn-fluid btn-primary btn-lg mt-1 ml-1 mr-1" href="add_posting.html">Add Posting</a></div>
+        <div class="col-sm-4 "><a  class="btn-fluid btn-primary btn-lg mt-1 ml-1 mr-1"href="view_postings.html" >View Postings</a></div>
+        <div class="col-sm-4 "><a class="btn-fluid btn-primary btn-lg mt-1 ml-1 mr-1" href="view_recruiters.html">View Recruiters</a></div>
+    </div>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">&copy; 2017-2018 Company Name</p>
