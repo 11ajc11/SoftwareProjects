@@ -1,10 +1,10 @@
 
 
 EDU_CHOICES = (
-    ('',''),
-    ('High School','High School'),
-    ('Associates Degree', 'Associates Degree'),
-    ('Community College','Community College'),
+    ("", ""),
+    ("High School", "High School"),
+    ("Associates Degree", "Associates Degree"),
+    ("Community College", "Community College"),
     ("Bachelor's Degree", "Bachelor's Degree"),
     ("Master's Degree", "Master's Degree"),
     ('MBA', 'MBA'),
@@ -42,7 +42,8 @@ Skills_choices = (
     ("Web architecture and development framework", "Web architecture and development framework")
 )
 
-CITIES_CHOICES = (("New York", "New York"),
+CITIES_CHOICES = (
+    ("New York", "New York"),
     ("Los Angeles", "Los Angeles"),
     ("Chicago", "Chicago"),
     ("Houston", "Houston"),
@@ -92,5 +93,35 @@ CITIES_CHOICES = (("New York", "New York"),
                   )
 
 MAJOR_CHOICES = (
+    ("Computer Programming", "Computer Programming"),
+    ("Computer Science", "Computer Science"),
+    ("Information Sciences", "Information Sciences"),
+    ("Software Engineering", "Software Engineering"),
+    ("Systems Analysis", "Systems Analysis"),
+    ("Business Analysis", "Business Analysis"),
+    ("Information Technology", "Information Technology"),
+    ("Information Systems", "Information Systems")
 
+)
+
+YEARS_OF_EXPERIENCE = (
+    ("1", "1"),
+    ("2", "2"),
+    ("3", "3"),
+    ("4+", "4+")
+
+)
+
+Graduation_Choices = (
+    ("2018", "2018"),
+    ("2019", "2019"),
+    ("2020", "2020"),
+    ("2021", "2021"),
+    ("Unapplicable", "Unapplicable")
+)
+
+GENDER_CHOICES = (
+    ("Male", "Male"),
+    ("Female", "Female"),
+    ("Other", "Other")
 )

@@ -1,9 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+from phonenumber_field.modelfields import PhoneNumberField
 from django.db.models.signals import post_save
 
 from employment_portal.choices import (EDU_CHOICES, Skills_choices,
-                                       CITIES_CHOICES, MAJOR_CHOICES, YEARS_OF_EXPERIENCE)
+                                       CITIES_CHOICES, MAJOR_CHOICES, Graduation_Choices, YEARS_OF_EXPERIENCE)
+
 
 class Candidate(models.Model):
 	#Personal Info
@@ -12,15 +14,16 @@ class Candidate(models.Model):
 	gender = models.CharField(choices =(('male', 'Male'), ('female', 'Female'), ('other','Other'),), max_length= 10)
 	nearest_metropolitan_city = models.CharField(max_length= 50,
 	                                    choices = CITIES_CHOICES)
+	phone_number = PhoneNumberField(blank=False)
 	#Education
 	education = models.CharField(max_length= 25,
 	                             choices = EDU_CHOICES)
 	education_major = models.CharField(max_length= 300,
 	                                   choices = MAJOR_CHOICES)
 	education_university = models.CharField(max_length= 45)
-	years_of_experience = models.CharField(max_length=40, choices= 'YEARS_OF_EXPERIENCE')
+	years_of_experience = models.CharField(max_length=40, choices= YEARS_OF_EXPERIENCE)
 	# Graduation Choices = 2018,2019,2020, 2021, Not applicable
-	Graduation = models.CharField(choices=Graduation_Choices, max_length= 40)
+	Graduation = models.CharField(choices=Graduation_Choices, max_length= 40, blank= True)
 
 	#Candidate Image
 	image = models.ImageField(upload_to= 'company/%Y/%m/%d')
@@ -46,12 +49,15 @@ class Candidate(models.Model):
 	def __str__(self):
 		return self.user.email
 
+
 def update_profile_user(sender, instance, created, **kwargs):
 	from user_accounts.models import UserProfile
 	if created:
 		UserProfile.objects.filter(user = instance.user).update(user_type = 'Candidate')
 
+
 post_save.connect(update_profile_user, sender = Candidate)
+
 
 class CandidateSkills(models.Model):
 	user = models.OneToOneField(User, on_delete= models.CASCADE)
@@ -104,6 +110,7 @@ class CandidateSkills(models.Model):
 		choices=Skills_choices, unique=True,
 		null = True
 	)
+
 
 class CandidateResume(models.Model):
 	candidate = models.ForeignKey(Candidate, on_delete= models.CASCADE)

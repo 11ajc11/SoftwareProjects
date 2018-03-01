@@ -31,14 +31,37 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'candidates.apps.CandidatesConfig',
-    'postings.apps.PostingsConfig',
+
+    # DatabaseConfigs
+    #'candidates.apps.CandidatesConfig',
+    #'company.apps.CompanyConfig',
+    #'offer_solicit.apps.OfferSolicitConfig',
+    #'postings.apps.PostingsConfig',
+    #'recruiters.apps.RecruitersConfig',
+    #'user_accounts.apps.UserAccountsConfig',
+    #Rest
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #EXTERNAL APPS
+    'django_extensions',
+    'django_countries',
+    'storages',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    #Project apps
+    'candidates',
+    'company',
+    'home',
+    'offer_solicit',
+    'postings',
+    'recruiters',
+    'user_accounts'
 ]
 
 MIDDLEWARE = [
@@ -77,11 +100,14 @@ WSGI_APPLICATION = 'employment_portal.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django',
+        'USER': 'SYSTEM',
+        'PASSWORD': 'mysqlpassword123',
+        'HOST': 'softwareproject.ccwmm651uarn.us-east-1.rds.amazonaws.com',
+        'PORT': '3306'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators

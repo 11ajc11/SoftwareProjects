@@ -1,8 +1,8 @@
 from django.db import models
 
 from recruiters.models import Recruiter
-from employer_admin.models import Employer
-from employer_portal.choices import (CITY_CHOICES, JS_CHOICES)
+from company.models import Employer
+from employment_portal.choices import (CITIES_CHOICES, Skills_choices)
 
 class City(models.Model):
 	city = models.CharField(
@@ -12,8 +12,7 @@ class City(models.Model):
 		return self.city
 
 class Job(models.Model):
-	Employer_Name - models.ForeignKey(Employer, on_delete=models.CASCADE,
-	                             related_name='jobs')
+	Employer_Name = models.ForeignKey(Employer, on_delete=models.CASCADE, related_name='jobs')
 	job_title = models.CharField(max_length=200)
 	location=models.CharField(choices= (('onsite', 'On-site'),('remote','Remote')), max_length=50,
 	                          blank=True, null=True)
@@ -25,7 +24,7 @@ class Job(models.Model):
 	Job_Description = models.CharField(max_length= 500)
 	is_featured = models.BooleanField(default=False)
 	is_active = models.BooleanField(default=True)
-	recruiter = models.ForeignKey(Recruiter, related_name='jobs')
+	recruiter = models.ForeignKey(Recruiter, related_name='jobs', on_delete=models.CASCADE)
 	last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
 	job_created = models.DateTimeField(auto_now_add=True, auto_now=False)
 
@@ -36,51 +35,51 @@ class JobRequirements(models.Model):
 	job = models.OneToOneField(Job, on_delete = models.CASCADE)
 	job_skills_1 = models.CharField(
 		max_length= 25,
-		choices= JS_choices, unique= True
+		choices= Skills_choices, unique= True
 	)
 	job_skills_2 = models.CharField(
 		max_length=25,
-		choices=JS_choices, unique=True,
+		choices=Skills_choices, unique=True,
 		null=True
 	)
 	job_skills_3 = models.CharField(
 		max_length=25,
-		choices=JS_choices, unique=True,
+		choices=Skills_choices, unique=True,
 		null=True
 	)
 	job_skills_4 = models.CharField(
 		max_length=25,
-		choices=JS_choices, unique=True,
+		choices=Skills_choices, unique=True,
 		null=True
 	)
 	job_skills_5 = models.CharField(
 		max_length=25,
-		choices=JS_choices, unique=True,
+		choices=Skills_choices, unique=True,
 		null=True
 	)
 	job_skills_6 = models.CharField(
 		max_length=25,
-		choices=JS_choices, unique=True,
+		choices=Skills_choices, unique=True,
 		null=True
 	)
 	job_skills_7 = models.CharField(
 		max_length=25,
-		choices=JS_choices, unique=True,
+		choices=Skills_choices, unique=True,
 		null=True
 	)
 	job_skills_8 = models.CharField(
 		max_length=25,
-		choices=JS_choices, unique=True,
+		choices=Skills_choices, unique=True,
 		null=True
 	)
 	job_skills_9 = models.CharField(
 		max_length=25,
-		choices=JS_choices, unique=True,
+		choices=Skills_choices, unique=True,
 		null=True
 	)
 	job_skills_10 = models.CharField(
 		max_length=25,
-		choices=JS_choices, unique=True,
+		choices=Skills_choices, unique=True,
 		null=True
 	)
 
