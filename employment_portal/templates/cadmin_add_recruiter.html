@@ -7,66 +7,61 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Checkout example for Bootstrap</title>
+    <title>Add Recruiter</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="edit_company_profile.css" rel="stylesheet">
+    <link href="GeneralStyle.css" rel="stylesheet">
   </head>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="company_admin_landing.html">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
+    <li class="breadcrumb-item"><a href="company_admin_landing.html">Home</a></li><li class="breadcrumb-item"><a href="view_recruiters.html">View Recruiters</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Add Recruiter</li>
   </ol>
 </nav>
   <body class="bg-light">
 
     <div class="container">
       <div class="py-5 text-center">
-        <h2>Edit Buy PooPooOnline's Profile</h2>
+        <h2>Create Recruiter Profile</h2>
       </div>
 
       <div class="row">
         <div class="col-xl">
-          <h4 class="mb-3">Information</h4>
-            <div class="form-group">
-            <div class="input-group-prepend">
-                  <span class="input-group-text">Biography</span>
-                </div><textarea class="form-control" rows="5" id="comment"></textarea>
-            </div>
+          <h4 class="mb-3">Create Recruiter</h4>
+            
             <div class="mb-5">
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text">Website</span>
+                  <span class="input-group-text">Username</span>
                 </div>
-                <input type="text" class="form-control" id="username" placeholder="www.gobuystuff.com" required>
+                <input type="text" class="form-control" id="username" placeholder="Xx_pwns_employees_xX" required>
                 <div class="invalid-feedback" style="width: 100%;">
                   Your username is required.
                 </div>
               </div>
             </div>
-        <div class="input-group mb-5">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Upload</span>
+            
+            <div class="mb-5">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Password</span>
+                </div>
+                <input type="text" class="form-control" id="username" placeholder="CoDisLif3" required>
+                <div class="invalid-feedback" style="width: 100%;">
+                  A password is required.
+                </div>
+              </div>
             </div>
-            <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputGroupFile01">
-                <label class="custom-file-label" for="inputGroupFile01">Choose Icon Photo</label>
+            
+            <div class="form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Notes</span>
+                </div>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
             </div>
-                
-        </div>
-        <div class="input-group mb-5">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Upload</span>
-        </div>
-        <div class="custom-file">
-            <input type="file" class="custom-file-input" id="inputGroupFile01">
-            <label class="custom-file-label" for="inputGroupFile01">Choose Banner Photo</label>
-        </div>
-                
-        </div>
-        <a class="btn btn-primary btn-lg btn-block" type="submit" href="company_admin_landing.html">Save Account</a>
+        <a href="view_recruiters.html" class="btn-lg btn-primary">Create</a>
         </div>
       </div>
 
