@@ -18,12 +18,12 @@
     <div class="d-flex flex-md-equal w-100">
       <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5  text-center text-white overflow-hidden">
         <div class="my-3 py-3">
-          <h1 class="display-5"> <a class="nav-link active" href="candidate_login.html">Candidate</a></h1>
+          <h1 class="display-5"> <a class="nav-link active" href="{% url 'user_accounts:candidatelogin' %}">Candidate</a></h1>
         </div>
       </div>
       <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
         <div class="my-3 p-3">
-          <h1 class="display-5"> <a class="nav-link active" href="company_login.html">Company</a></h1>
+          <h1 class="display-5"> <a class="nav-link active" href="{% url 'user_accounts:companylogin' %}">Company</a></h1>
         </div>
       </div>
     </div>
