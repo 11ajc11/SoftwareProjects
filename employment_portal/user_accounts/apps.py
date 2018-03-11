@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class UserAccountsConfig(AppConfig):
-    name = 'user_accounts'
+    namespace = 'user_accounts'
     #label = 'user'

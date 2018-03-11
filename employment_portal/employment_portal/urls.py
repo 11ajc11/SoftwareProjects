@@ -19,7 +19,7 @@ from django.conf.urls import url, include
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/', include('home.urls')),
-    #url(r'^user_accounts/', include('user_accounts.urls')),
+    url(r'^user_accounts/', include('user_accounts.urls')),
     #url(r'^candidates/', include('candidates.urls')),
     #url(r'^company/', include('company.urls')),
     #url(r'^offer_solicit/', include('offer_solicit.urls')),
