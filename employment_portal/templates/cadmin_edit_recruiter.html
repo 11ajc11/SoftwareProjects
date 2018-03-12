@@ -16,7 +16,7 @@
   </head>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="company_admin_landing.html">Home</a></li><li class="breadcrumb-item"><a href="view_recruiters.html">View Recruiters</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'company:cadmin_landing' %}">Home</a></li><li class="breadcrumb-item"><a href="{% url 'company:cadmin_view_recruiters' %}">View Recruiters</a></li>
     <li class="breadcrumb-item active" aria-current="page">Edit Recruiter</li>
   </ol>
 </nav>
@@ -61,7 +61,7 @@
                 </div>
                 <textarea class="form-control" rows="5" id="comment"></textarea>
             </div>
-        <a href="view_recruiters.html" class="btn-lg btn-primary">Save</a>
+        <a href="{% url 'company:cadmin_view_recruiters' %}" class="btn-lg btn-primary">Save</a>
         </div>
       </div>
 

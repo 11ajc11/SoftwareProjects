@@ -17,7 +17,7 @@
   </head>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="company_admin_landing.html">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'company:cadmin_landing' %}">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">View Postings</li>
   </ol>
 </nav>
@@ -56,7 +56,7 @@
                     </li>
                 </ol>
             </div>
-            <a href="edit_posting.html" class="btn-sm btn-outline-primary ml-2">Edit</a>
+            <a href="{% url 'company:cadmin_edit_posting' %}"  class="btn-sm btn-outline-primary ml-2">Edit</a>
             </div>
         </li>
         
@@ -84,7 +84,7 @@
                     </li>
                 </ol>
             </div>
-            <a href="edit_posting.html" class="btn-sm btn-outline-primary ml-2">Edit</a>
+            <a href="{% url 'company:cadmin_edit_posting' %}" class="btn-sm btn-outline-primary ml-2">Edit</a>
             </div>
         </li>
         <li class="list-group-item mb-2"><div class="media">
@@ -111,7 +111,7 @@
                     </li>
                 </ol>
             </div>
-            <a href="edit_posting.html" class="btn-sm btn-outline-primary ml-2">Edit</a>
+            <a href="{% url 'company:cadmin_edit_posting' %}"  class="btn-sm btn-outline-primary ml-2">Edit</a>
             </div>
         </li>
         <li class="list-group-item mb-2"><div class="media">
@@ -138,7 +138,7 @@
                     </li>
                 </ol>
             </div>
-            <a href="edit_posting.html" class="btn-sm btn-outline-primary ml-2">Edit</a>
+            <a href="{% url 'company:cadmin_edit_posting' %}"  class="btn-sm btn-outline-primary ml-2">Edit</a>
             </div>
         </li>
         <li class="list-group-item mb-2"><div class="media">
@@ -165,7 +165,7 @@
                     </li>
                 </ol>
             </div>
-            <a href="edit_posting.html" class="btn-sm btn-outline-primary ml-2">Edit</a>
+            <a href="{% url 'company:cadmin_edit_posting' %}" class="btn-sm btn-outline-primary ml-2">Edit</a>
             </div>
         </li>
     </ul>

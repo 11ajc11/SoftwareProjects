@@ -17,7 +17,7 @@
   </head>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="company_admin_landing.html">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'company:cadmin_landing' %}">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">View Recruiter</li>
   </ol>
 </nav>
@@ -27,7 +27,7 @@
       <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
         <h2>View Recruiters</h2>
-        <a href="add_recruiter.html" class="btn-lg btn-primary">Add Recruiter</a>
+        <a href="{% url 'company:cadmin_add_recruiter' %}" class="btn-lg btn-primary">Add Recruiter</a>
       </div>
         
 
@@ -37,7 +37,7 @@
                 <h5 class="mt-0 mb-1">Recruiter 1</h5>
                     Surface Level Note an employer can leave. The recruiter name, for example.
             </div>
-            <a href="edit_recruiter.html" class="btn-sm btn-outline-primary ml-2">Edit</a>
+            <a href="{% url 'company:cadmin_edit_recruiter' %}" class="btn-sm btn-outline-primary ml-2">Edit</a>
             </div>
         </li>
         <li class="list-group-item mb-3">
@@ -46,7 +46,7 @@
                 <h5 class="mt-0 mb-1">Recruiter 2</h5>
                     Surface Level Note an employer can leave. The recruiter name, for example.
             </div>
-            <a href="edit_recruiter.html" class="btn-sm btn-outline-secondary ml-2">Edit</a>
+            <a href="{% url 'company:cadmin_edit_recruiter' %}" class="btn-sm btn-outline-secondary ml-2">Edit</a>
             </div>
         </li>
         <li class="list-group-item mb-3"><div class="media">
@@ -54,7 +54,7 @@
                 <h5 class="mt-0 mb-1">Recruiter 3</h5>
                     Surface Level Note an employer can leave. The recruiter name, for example.
             </div>
-            <a href="edit_recruiter.html" class="btn-sm btn-outline-secondary ml-2">Edit</a>
+            <a href="{% url 'company:cadmin_edit_recruiter' %}" class="btn-sm btn-outline-secondary ml-2">Edit</a>
             </div>
         </li>
         <li class="list-group-item mb-3"><div class="media">
@@ -62,7 +62,7 @@
                 <h5 class="mt-0 mb-1">Recruiter 4</h5>
                     Surface Level Note an employer can leave. The recruiter name, for example.
             </div>
-            <a href="edit_recruiter.html" class="btn-sm btn-outline-secondary ml-2">Edit</a>
+            <a href="{% url 'company:cadmin_edit_recruiter' %}" class="btn-sm btn-outline-secondary ml-2">Edit</a>
             </div>
         </li>
         <li class="list-group-item mb-3"><div class="media">
@@ -70,7 +70,7 @@
                 <h5 class="mt-0 mb-1">Recruiter 5</h5>
                     Surface Level Note an employer can leave. The recruiter name, for example.
             </div>
-            <a href="edit_recruiter.html" class="btn-sm btn-outline-secondary ml-2">Edit</a>
+            <a href="{% url 'company:cadmin_edit_recruiter' %}" class="btn-sm btn-outline-secondary ml-2">Edit</a>
             </div>
         </li>
     </ul>

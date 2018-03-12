@@ -16,7 +16,7 @@
   </head>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="company_admin_landing.html">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'company:cadmin_landing' %}" >Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
   </ol>
 </nav>
@@ -66,7 +66,7 @@
         </div>
                 
         </div>
-        <a class="btn btn-primary btn-lg btn-block" type="submit" href="company_admin_landing.html">Save Account</a>
+        <a class="btn btn-primary btn-lg btn-block" type="submit" href="{% url 'company:cadmin_landing' %}">Save Account</a>
         </div>
       </div>
 

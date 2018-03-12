@@ -16,7 +16,7 @@
   </head>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="company_admin_landing.html">Home</a></li><li class="breadcrumb-item"><a href="view_postings.html">View Postings</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'company:cadmin_landing' %}">Home</a></li><li class="breadcrumb-item"><a href="{% url 'company:cadmin_view_postings' %}">View Postings</a></li>
     <li class="breadcrumb-item active" aria-current="page">Edit Posting</li>
   </ol>
 </nav>
@@ -121,7 +121,7 @@
         <option>Skill E</option>
         </select>
             </div>
-        <a href="view_postings.html" class="btn-lg btn-primary">Save</a>
+        <a href="{% url 'company:cadmin_view_postings' %}" class="btn-lg btn-primary">Save</a>
         </div>
       </div>
 
