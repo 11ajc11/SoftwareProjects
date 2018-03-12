@@ -11,8 +11,8 @@ class UserSignUp(UserCreationForm):
         fields = ('username', 'password1', 'password2',)
 
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=255, required=True)
-    password = forms.CharField(widget=forms.PasswordInput, required=True)
+    username = forms.CharField(max_length=255, required=True,widget=forms.TextInput(attrs={'placeholder':"Username",'class': "form-control"}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':"Password",'class': "form-control"}), required=True)
 
     def clean(self):
         username = self.cleaned_data.get('username')
@@ -27,7 +27,3 @@ class LoginForm(forms.Form):
         password = self.cleaned_data.get('password')
         user = authenticate(username=username, password=password)
         return user
-
-
-
-

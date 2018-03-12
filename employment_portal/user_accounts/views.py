@@ -12,7 +12,7 @@ def candidatesignup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return render(request, 'candidate_login_success.html')
+            return redirect('candidates:candidates_edit_profile')
     else:
         form = UserSignUp()
     return render(request, 'candidate_signup.html', {'form': form})
@@ -26,7 +26,7 @@ def companysignup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return render(request, 'cadmin_edit_profile.html')
+            return redirect("company:cadmin_edit_profile")
     else:
         form = UserSignUp()
     return render(request, 'cadmin_signup.html', {'form': form})
@@ -37,7 +37,7 @@ def candidatelogin(request):
         user = form.login(request)
         if user:
             login(request, user)
-            return render(request, "candidate_login_success.html")
+            return redirect("candidates:candidates_landing")
     return render(request, 'candidate_login.html', {'form': form})
 
 def companylogin(request):
@@ -46,9 +46,5 @@ def companylogin(request):
         user = form.login(request)
         if user:
             login(request, user)
-            return render(request, "cadmin_landing.html")# Redirect to a success page.
+            return redirect("company:cadmin_landing")# Redirect to a success page.
     return render(request, 'cadmin_login.html', {'form': form})
-
-
-
-
