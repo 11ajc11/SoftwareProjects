@@ -25,8 +25,8 @@ class Employer(models.Model):
 		return self.name_english
 
 	def save(self, *args, **kwargs):
-		from employment_portal.utils import generate_thumbnail
-		self.business_license_thumb = generate_thumbnail(self.business_license)
+		#from employment_portal.utils import generate_thumbnail
+		#self.business_license_thumb = generate_thumbnail(self.business_license)
 		super(Employer, self).save(*args, **kwargs)
 
 	def delete(self, *args, **kwargs):

@@ -1,10 +1,21 @@
 from django.shortcuts import render
+from .models import Candidate
+from .admin import CandidateAdmin
 
 # Create your views here.
 def candidates_landing(request):
-    return render(request,"candidates_landing.html")
+    uid = request.user.id
+    c = Candidate.objects.get(user_id=uid)
+    #print(Candidate.objects.all())
+    #print(c.objects)
+    context = {
+        'education': c.education,
+        'phone':c.phone_number,
+    }
+    return render(request, "candidates_landing.html",context)
 
 def candidates_edit_profile(request):
+
     return render(request,"candidates_edit_profile.html")
 
 def candidate_login(request):

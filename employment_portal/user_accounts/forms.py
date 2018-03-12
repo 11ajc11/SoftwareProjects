@@ -2,13 +2,15 @@ from django import forms
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
+from .models import UserProfile
 
 class UserSignUp(UserCreationForm):
     #email = forms.EmailField(max_length=254, help_text='Required. Input a valid email address.', required=True)
+
     class Meta:
         model = User
-        fields = ('username', 'password1', 'password2',)
+        fields = ('username', 'password1', 'password2', 'email',)
+
 
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=255, required=True,widget=forms.TextInput(attrs={'placeholder':"Username",'class': "form-control"}))

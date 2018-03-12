@@ -54,7 +54,7 @@
     <div class="container">
         <div class="py-5 text-center">
             <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-            <h2>Bilal Rizvi</h2>
+            <h2>{{user.username}}</h2>
             <p class="lead">This is your profile info.</p>
             <p id="location">Location: Chicago</p>
             <a href="{% url 'candidates:candidates_edit_profile' %}">
@@ -88,7 +88,7 @@
                     <div class="col-xl-6 mb-3">
                         <ul class="list-group">
                             <li class="list-group-item">
-                                DePaul University, 2018
+                                {{education}}
                             </li>
                             <li class="list-group-item">
                                 DePaul University, 2018

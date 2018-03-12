@@ -36,8 +36,8 @@ class Candidate(models.Model):
 
 	#Saving an image
 	def save(self, *args, **kwargs):
-		from employment_portal.utils import generate_thumbnail
-		self.thumb = generate_thumbnail(self.image)
+		#from employment_portal.utils import generate_thumbnail
+		#self.thumb = generate_thumbnail(self.image)
 		super(Candidate, self).save(*args, **kwargs)
 
 	#Deleting an image

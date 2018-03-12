@@ -8,10 +8,16 @@ from user_accounts.models import UserProfile
 
 class SolicitationRequestInLine(admin.StackedInline):
     model = Solicitation
+
+
 class CandidateSkillsInLine(admin.StackedInline):
     model = CandidateSkills
+
+
 class CandidateResumeInLine(admin.StackedInline):
     model = CandidateResume
+
+
 class CandidateAdmin(admin.ModelAdmin):
     def email(obj):
         return '%s' % (obj.user.email)

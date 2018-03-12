@@ -1,7 +1,9 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
-from user_accounts.forms import UserSignUp, LoginForm
+from .forms import UserSignUp, LoginForm
+from .models import UserProfile
+from candidates.models import Candidate
 
 def candidatesignup(request):
     if request.method=='POST':
@@ -11,6 +13,15 @@ def candidatesignup(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
+            p = UserProfile()
+            p.user_type='candidate'
+            p.user = user
+            p.save()
+            c = Candidate()
+            c.user = user
+            c.education = 'Depaul'
+            c.date_of_birth = '1223-3-2'
+            c.save()
             login(request, user)
             return redirect('candidates:candidates_edit_profile')
     else:
@@ -23,8 +34,13 @@ def companysignup(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
+            user_type = 'Company'
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
+            p = UserProfile()
+            p.user_type = 'company'
+            p.user = user
+            p.save()
             login(request, user)
             return redirect("company:cadmin_edit_profile")
     else:
