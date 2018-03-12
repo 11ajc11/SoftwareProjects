@@ -32,18 +32,18 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="candidate_profile.html">Profile </a>
+                        <a class="nav-link" href="{% url 'candidates:candidates_landing' %}">Profile </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="candidate_search_jobs.html">Jobs</a>
+                        <a class="nav-link" href="{% url 'candidates:candidate_search_jobs' %}">Jobs</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="candidate_smart_search.html">Smart Search
+                        <a class="nav-link" href="{% url 'candidates:candidate_smart_search' %}">Smart Search
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="candidate_search_companies.html">Companies</a>
+                        <a class="nav-link" href="{% url 'candidates:candidate_search_companies' %}">Companies</a>
                     </li>
                 </ul>
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log Out</button>
