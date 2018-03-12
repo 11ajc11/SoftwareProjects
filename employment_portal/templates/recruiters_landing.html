@@ -7,74 +7,39 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Recruiter Posts</title>
+    <title>Recruiter Landing</title>
 
     <!-- Bootstrap core CSS -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="GeneralStyle.css" rel="stylesheet">
+    <link href="recruiters_landing.css" rel="stylesheet">
   </head>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="recruiter_landing.html">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">My Postings</li>
+    <li class="breadcrumb-item active" aria-current="page">Home</li>
   </ol>
 </nav>
   <body class="bg-light">
 
     <div class="container">
-        
       <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h2>My Postings</h2>
+        <h2>Recruiter for EmploymentPortalBuystuff</h2>
+        <p class="lead">Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It’s not a story the Jedi would tell you. It’s a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic. He could save others from death, but not himself.</p>
       </div>
 
       <div class="row">
-          
-        <div class='card w-100 mb-3'>
-            <div class="media ml-2 mr-2 mt-2 mb-2" style="border-color: darkblue; border-bottom-width: 1px; border-style">
-            <div class=" display-1 mr-3 ">1</div>
+        <div class="col">
+            <a href="{%url 'recruiters:recruiters_postings'%}" class="btn btn-info btn-lg btn-block button-text mb-4" ><div class="display-1">My Postings</div></a>
             
-            <div class="media-body">
-            <h1 class="mt-0">Job Title</h1>
-                Descripton of the Job->>>here's a ted cruz tweet: Snowflake, believing online propaganda: "OMG w/o net neutrality, the Internet is gone!" Informed observer: "You know, the FCC issued that rule in 2015. The Internet grew up wonderfully free from govt regulation & this restores the status quo ante."  Snowflake: "Uh, never mind..."
-                <hr>
-                <ol class="list-inline">
-                    <li class="list-inline-item">
-                        Skill 1
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 2
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 3
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 4
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 5
-                    </li>
-                </ol>
-            </div>
-            <a href="recruiter_view_post.html" class="btn btn-outline-info">View</a>
-            </div>
+            <a href="{%url 'recruiters:recruiters_smart_match'%}" class="btn btn-info btn-lg btn-block button-text mb-4" ><div class="display-1">Smart Match</div></a>
+            
+            <a href="{%url 'recruiters:recruiters_view_solicitations'%}" class="btn btn-info btn-lg btn-block button-text mb-4" ><div class="display-1">View Solicitations</div></a>
+            
+            <a href="{%url 'recruiters:recruiters_sent_offers'%}" class="btn btn-info btn-lg btn-block button-text mb-4" ><div class="display-1">Sent Offers</div></a>
         </div>
-          
-          
-          
       </div>
-
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017-2018 Company Name</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-      </footer>
     </div>
 
     <!-- Bootstrap core JavaScript

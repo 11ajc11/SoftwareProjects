@@ -1,23 +1,75 @@
 
-
-
-
-/*
- * Extra utilities
- */
-
-.flex-equal > * {
-  -ms-flex: 1;
-  -webkit-box-flex: 1;
-  flex: 1;
-}
-@media (min-width: 768px) {
-  .flex-md-equal > * {
-    -ms-flex: 1;
-    -webkit-box-flex: 1;
-    flex: 1;
-  }
+.project {
+	width: 100%;
+	height: 1640px;
+	background-color:darkorchid;
+	background-size: cover;
+	background-position: center;
+	padding-top: 0 !important;
+	float:left;
+    font-size: 24pt;
 }
 
-.overflow-hidden { overflow: hidden; }
+.project-2 {
+	background-color:cornflowerblue;
+}
 
+.project-4 {
+	background-color:cyan;
+}
+
+.project-hover {
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	opacity: 0;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	background-color:darkslateblue;
+	padding: 40% 30px !important;
+}
+
+.project-hover hr {
+	height: 30px;
+	width: 0;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	background-color: rgba(255, 255, 255, 1);
+	border: 0;
+}
+
+.project-hover a {
+	color: rgba(255, 255, 255, 1);
+	padding: 2px 22px;
+	line-height: 40px;
+	border: 2px solid rgba(255, 255, 255, 1);
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+
+.project-hover a:hover {
+	border-color: rgba(51, 51, 51, 1);
+	color: rgba(51, 51, 51, 1);
+	background-color: #FFF;
+}
+
+.project:hover .project-hover {
+	opacity: 1;
+}
+
+.project:hover .project-hover hr {
+	width: 100%;
+	height: 5px;
+}
+.container
+{
+    padding-top: 40% !important;
+}
+h1{font-size: 36pt;}
+body{background-color:#adb5bd;}

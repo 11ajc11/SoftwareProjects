@@ -24,5 +24,5 @@ urlpatterns = [
     url(r'^company/', include('company.urls')),
     #url(r'^offer_solicit/', include('offer_solicit.urls')),
     #url(r'^postings/', include('postings.urls')),
-    #url(r'^recruiters/', include('recruiters.urls')),
+    url(r'^recruiters/', include('recruiters.urls')),
 ]
