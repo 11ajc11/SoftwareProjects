@@ -101,138 +101,51 @@
 
 
         <ul id="myUL" class="list-group mr-5 ml-5">
-
+            {%for job in job_list%}
             <li class="list-group-item mb-2">
                 <a href="#">
-                        <h3 class="mt-0 mb-1">Intern</h3>
+                        <h3 class="mt-0 mb-1">{{job.job_title}}</h3>
                         <h5 class="mt-0 mb-1"> </h5>
-                        <p>Description of the Job. hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa aadfasjdf asdf asldflaskdfj
-                            asl;dkjfalsk djflaskd;faj lka</p>
+                        <p>{{job.Job_description}}</p>
                         <label class="text-muted">Skills </label>
                         <ol class="list-inline">
+                            
                             <li class="list-inline-item">
-                                Skill 1
+                                job.job_skills_1
+                            </li>
+                            
+                            <li class="list-inline-item">
+                                job.job_skills_2
+                            </li>
+                            
+                            <li class="list-inline-item">
+                                job.job_skills_3
                             </li>
                             <li class="list-inline-item">
-                                Skill 2
+                                job.job_skills_4
                             </li>
                             <li class="list-inline-item">
-                                Skill 3
+                                job.job_skills_5
                             </li>
                             <li class="list-inline-item">
-                                Skill 4
+                                job.job_skills_6
                             </li>
                             <li class="list-inline-item">
-                                Skill 5
+                                job.job_skills_7
+                            </li>
+                            <li class="list-inline-item">
+                                job.job_skills_8
+                            </li>
+                            <li class="list-inline-item">
+                                job.job_skills_9
+                            </li>
+                            <li class="list-inline-item">
+                                job.job_skills_10
                             </li>
                         </ol>
                 </a>
             </li>
-
-            <li class="list-group-item mb-2">
-                <a href="#">
-                        <h3 class="mt-0 mb-1">Software</h3>
-                        <h5 class="mt-0 mb-1"> </h5>
-                        <p>Description of the Job. hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa aadfasjdf asdf asldflaskdfj
-                            asl;dkjfalsk djflaskd;faj lka</p>
-                        <label class="text-muted">Skills </label>
-                        <ol class="list-inline">
-                            <li class="list-inline-item">
-                                Skill 1
-                            </li>
-                            <li class="list-inline-item">
-                                Skill 2
-                            </li>
-                            <li class="list-inline-item">
-                                Skill 3
-                            </li>
-                            <li class="list-inline-item">
-                                Skill 4
-                            </li>
-                            <li class="list-inline-item">
-                                Skill 5
-                            </li>
-                        </ol>
-                </a>
-            </li>
-            <li class="list-group-item mb-2">
-                <a href="#">
-                        <h3 class="mt-0 mb-1">Cyber</h3>
-                        <h5 class="mt-0 mb-1"> </h5>
-                        <p>Description of the Job. hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa aadfasjdf asdf asldflaskdfj
-                            asl;dkjfalsk djflaskd;faj lka</p>
-                        <label class="text-muted">Skills </label>
-                        <ol class="list-inline">
-                            <li class="list-inline-item">
-                                Skill 1
-                            </li>
-                            <li class="list-inline-item">
-                                Skill 2
-                            </li>
-                            <li class="list-inline-item">
-                                Skill 3
-                            </li>
-                            <li class="list-inline-item">
-                                Skill 4
-                            </li>
-                            <li class="list-inline-item">
-                                Skill 5
-                            </li>
-                        </ol>
-                </a>
-            </li>
-            <li class="list-group-item mb-2">
-                <a href="#">
-                        <h3 class="mt-0 mb-1">Forensics</h3>
-                        <h5 class="mt-0 mb-1"> </h5>
-                        <p>Description of the Job. hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa aadfasjdf asdf asldflaskdfj
-                            asl;dkjfalsk djflaskd;faj lka</p>
-                        <label class="text-muted">Skills </label>
-                        <ol class="list-inline">
-                            <li class="list-inline-item">
-                                Skill 1
-                            </li>
-                            <li class="list-inline-item">
-                                Skill 2
-                            </li>
-                            <li class="list-inline-item">
-                                Skill 3
-                            </li>
-                            <li class="list-inline-item">
-                                Skill 4
-                            </li>
-                            <li class="list-inline-item">
-                                Skill 5
-                            </li>
-                        </ol>
-                </a>
-            </li>
-            <li class="list-group-item mb-2">
-                <a href="#">
-                        <h3 class="mt-0 mb-1">Intern</h3>
-                        <h5 class="mt-0 mb-1"> </h5>
-                        <p>Description of the Job. hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa aadfasjdf asdf asldflaskdfj
-                            asl;dkjfalsk djflaskd;faj lka</p>
-                        <label class="text-muted">Skills </label>
-                        <ol class="list-inline">
-                            <li class="list-inline-item">
-                                Skill 1
-                            </li>
-                            <li class="list-inline-item">
-                                Skill 2
-                            </li>
-                            <li class="list-inline-item">
-                                Skill 3
-                            </li>
-                            <li class="list-inline-item">
-                                Skill 4
-                            </li>
-                            <li class="list-inline-item">
-                                Skill 5
-                            </li>
-                        </ol>
-                </a>
-            </li>
+            {%endfor%}
         </ul>
     </div>
     

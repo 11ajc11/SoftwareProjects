@@ -63,126 +63,19 @@
 
         <br>
         <br>
-        <h2 class="mt-0 mb-1">A</h2>
+        {%for company in company_list%}
         <ul class="list-group mr-5 ml-5">
 
             <li class="list-group-item mb-2">
                 <div class="media">
                     <div class="media-body">
-                        <h5 class="mt-0 mb-1">Company Name</h5>
-                        <p>Description of the Company hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa aadfasjdf asdf
-                            asldflaskdfj asl;dkjfalsk djflaskd;faj lka</p>
-                        <a href="company_profile.html">Profile</a>
-
-                    </div>
-                </div>
-            </li>
-
-            <li class="list-group-item mb-2">
-                <div class="media">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">Company Name</h5>
-                        <p>Description of the Company hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa aadfasjdf asdf
-                            asldflaskdfj asl;dkjfalsk djflaskd;faj lka</p>
-                        <a href="company_profile.html">Profile</a>
-
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item mb-2">
-                <div class="media">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">Company Name</h5>
-                        <p>Description of the Company hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa aadfasjdf asdf
-                            asldflaskdfj asl;dkjfalsk djflaskd;faj lka</p>
-                        <a href="company_profile.html">Profile</a>
-
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item mb-2">
-                <div class="media">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">Company Name</h5>
-                        <p>Description of the Company hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa aadfasjdf asdf
-                            asldflaskdfj asl;dkjfalsk djflaskd;faj lka</p>
-                        <a href="company_profile.html">Profile</a>
-
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item mb-2">
-                <div class="media">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">Company Name</h5>
-                        <p>Description of the Company hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa aadfasjdf asdf
-                            asldflaskdfj asl;dkjfalsk djflaskd;faj lka</p>
-                        <a href="company_profile.html">Profile</a>
-
+                        <h5 class="mt-0 mb-1">{{company.name_english}}</h5>
+                        <p>{{company.bio}}</p>
                     </div>
                 </div>
             </li>
         </ul>
-        <h2 class="mt-0 mb-1">B</h2>
-        <ul class="list-group mr-5 ml-5">
-
-            <li class="list-group-item mb-2">
-                <div class="media">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">Company Name</h5>
-                        <p>Description of the Company hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa aadfasjdf asdf
-                            asldflaskdfj asl;dkjfalsk djflaskd;faj lka</p>
-                        <a href="company_profile.html">Profile</a>
-
-                    </div>
-                </div>
-            </li>
-
-            <li class="list-group-item mb-2">
-                <div class="media">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">Company Name</h5>
-                        <p>Description of the Company hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa aadfasjdf asdf
-                            asldflaskdfj asl;dkjfalsk djflaskd;faj lka</p>
-                        <a href="company_profile.html">Profile</a>
-
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item mb-2">
-                <div class="media">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">Company Name</h5>
-                        <p>Description of the Company hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa aadfasjdf asdf
-                            asldflaskdfj asl;dkjfalsk djflaskd;faj lka</p>
-                        <a href="company_profile.html">Profile</a>
-
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item mb-2">
-                <div class="media">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">Company Name</h5>
-                        <p>Description of the Company hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa aadfasjdf asdf
-                            asldflaskdfj asl;dkjfalsk djflaskd;faj lka</p>
-                        <a href="company_profile.html">Profile</a>
-
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item mb-2">
-                <div class="media">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">Company Name</h5>
-                        <p>Description of the Company hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa aadfasjdf asdf
-                            asldflaskdfj asl;dkjfalsk djflaskd;faj lka</p>
-                        <a href="company_profile.html">Profile</a>
-
-                    </div>
-                </div>
-            </li>
-        </ul>
+        {%endfor%}
     </div>
 </body>
 

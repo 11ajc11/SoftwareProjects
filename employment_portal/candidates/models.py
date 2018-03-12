@@ -11,6 +11,7 @@ class Candidate(models.Model):
 	#Personal Info
 	user = models.OneToOneField(User, on_delete= models.CASCADE)
 	date_of_birth = models.DateField()
+
 	gender = models.CharField(choices =(('male', 'Male'), ('female', 'Female'), ('other','Other'),), max_length= 10)
 	nearest_metropolitan_city = models.CharField(max_length= 50,
 	                                    choices = CITIES_CHOICES)
