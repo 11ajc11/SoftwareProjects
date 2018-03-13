@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib import messages
 from .models import Candidate
 from .admin import CandidateAdmin
 from company.models import Employer
@@ -12,7 +13,10 @@ from .admin import CandidateAdmin
 class candidateeditprofileview(FormView):
     template_name = 'test_candidate_edit_profile.html'
     form_class = CandidateForm
-    success_url = 'success.html'
+    def form_valid(self, form):
+        form.save()
+        messages.success(self.request, "Profile Saved")
+        return render(self.request, 'success.html', self.get_context_data())
 # Create your views here.
 def candidates_landing(request):
     uid = request.user.id
