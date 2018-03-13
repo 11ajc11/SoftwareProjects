@@ -5,6 +5,15 @@ from .forms import UserSignUp, LoginForm
 from .models import UserProfile
 from candidates.models import Candidate
 
+def recruiterlogin(request):
+   form = LoginForm(request.POST or None)
+   if request.POST and form.is_valid():
+       user = form.login(request)
+       if user:
+           login(request, user)
+           return redirect("recruiters:recruiters_landing")
+   return render(request, 'recruiter_login.html', {'form': form})
+
 def candidatesignup(request):
     if request.method=='POST':
         form = UserSignUp(request.POST)

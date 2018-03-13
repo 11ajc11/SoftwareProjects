@@ -23,12 +23,12 @@
     <div class="container">
         <div class="py-5 text-center">
             <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-            <h2>Applied</h2>
+            <h2>Offers</h2>
         </div>
 
 
         <ul class="list-group mr-5 ml-5">
-            <li class="list-group-item mb-2">
+           <li class="list-group-item mb-2">
                 <div class="media">
                     <div class="media-body">
                         <h5 class="mt-0 mb-1">Job 1</h5>
@@ -69,7 +69,6 @@
                     </div>
                 </div>
             </li>
-
         </ul>
 
 
@@ -88,52 +87,7 @@
             </ul>
         </footer>
     </div>
-    <!--
-{%for solicitation in solicitation_list%}
-            <li class="list-group-item mb-2">
-                <div class="media">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">{{solicitation.job.job_title}}</h5>
-                        <p>{{solicitation.job.job_description}}</p>
-                        <label class="text-muted">Skills </label>
-                        <ol class="list-inline">
-                            <li class="list-inline-item">
-                                {{solicitation.job.job_skills_1}}
-                            </li>
-                            <li class="list-inline-item">
-                                {{solicitation.job.job_skills_2}}
-                            </li>
-                            <li class="list-inline-item">
-                                {{solicitation.job.job_skills_3}}
-                            </li>
-                            <li class="list-inline-item">
-                                {{solicitation.job.job_skills_4}}
-                            </li>
-                            <li class="list-inline-item">
-                                {{solicitation.job.job_skills_5}}
-                            </li>
-                            <li class="list-inline-item">
-                                {{solicitation.job.job_skills_6}}
-                            </li>
-                            <li class="list-inline-item">
-                                {{solicitation.job.job_skills_7}}
-                            </li>
-                            <li class="list-inline-item">
-                                {{solicitation.job.job_skills_8}}
-                            </li>
-                            <li class="list-inline-item">
-                                {{solicitation.job.job_skills_9}}
-                            </li>
-                            <li class="list-inline-item">
-                                {{solicitation.job.job_skills_10}}
-                            </li>
 
-
-                        </ol>
-                    </div>
-                </div>
-            </li>
-            {%endfor%}-->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -168,3 +122,47 @@
 </body>
 
 </html>
+<!--  {%for offer in offer_list%}
+            <li class="list-group-item mb-2">
+                <div class="media">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">{{offer.job.job_title}}</h5>
+                        <p>{{offer.job.job_description}}</p>
+                        <label class="text-muted">Skills </label>
+                        <ol class="list-inline">
+                            <li class="list-inline-item">
+                                {{offer.job.job_skills_1}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{offer.job.job_skills_2}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{offer.job.job_skills_3}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{offer.job.job_skills_4}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{offer.job.job_skills_5}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{offer.job.job_skills_6}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{offer.job.job_skills_7}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{offer.job.job_skills_8}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{offer.job.job_skills_9}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{offer.job.job_skills_10}}
+                            </li>
+
+                        </ol>
+                    </div>
+                </div>
+            </li>
+            {%endfor%}-->

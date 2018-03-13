@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^cadmin_edit_recruiter/', core_views.cadmin_edit_recruiter, name='cadmin_edit_recruiter'),
     url(r'^cadmin_view_postings/', core_views.cadmin_view_postings, name='cadmin_view_postings'),
     url(r'^cadmin_view_recruiters/', core_views.cadmin_view_recruiters, name='cadmin_view_recruiters'),
+    
 ]
