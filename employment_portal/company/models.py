@@ -9,6 +9,7 @@ from employment_portal.choices import (CITIES_CHOICES, GENDER_CHOICES,
 
 class Employer(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	website = models.URLField(max_length=200, null=True, blank=True)
 	phone_number = PhoneNumberField(blank=False)
 	name_english = models.CharField(blank=False, max_length=200)
 	name_local = models.CharField(blank=False, max_length=200)
