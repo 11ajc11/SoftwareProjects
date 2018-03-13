@@ -8,7 +8,7 @@ def cadmin_landing(request):
     return render(request,'cadmin_landing.html')
 
 class cadmin_edit_profile(FormView):
-    template_name = 'test_cadmin_edit_profile.html'
+    template_name = 'cadmin_edit_profile.html'
     form_class = CompanyForm
 
     def form_valid(self, form):
@@ -16,8 +16,8 @@ class cadmin_edit_profile(FormView):
         messages.success(self.request, "Profile Saved")
         return render(self.request, 'success.html', self.get_context_data())
 
-# def cadmin_edit_profile(request):
-#     return render(request, 'cadmin_edit_profile.html')
+def cadmin_edit_profile(request):
+     return render(request, 'cadmin_edit_profile.html')
 
 def cadmin_add_posting(request):
     return render(request, 'cadmin_add_posting.html')

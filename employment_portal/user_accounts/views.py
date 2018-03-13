@@ -23,7 +23,7 @@ def candidatesignup(request):
             c.date_of_birth = '1223-3-2'
             c.save()
             login(request, user)
-            return redirect('candidates:candidates_edit_profile')
+            return redirect('candidates:candidate_edit_profile')
     else:
         form = UserSignUp()
     return render(request, 'candidate_signup.html', {'form': form})

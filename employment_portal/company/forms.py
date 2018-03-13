@@ -1,9 +1,16 @@
 from .models import Employer
-from django.forms import ModelForm
+from django.forms import ModelForm, Textarea
 from django.utils.translation import gettext_lazy as _
+
 
 class CompanyForm(ModelForm):
     class Meta:
+        model=Employer
+        fields = ['bio', 'website']
+        widgets={'bio' : Textarea ( attrs={'value' : model.bio} ),
+                   'website': Textarea(attrs={'value': model.website})}
+
+    """class Meta:
         model = Employer
         fields = ('bio', 'website')
         labels = {
@@ -17,4 +24,4 @@ class CompanyForm(ModelForm):
             'bio': {
                 'max_length': _("This bio is too long.")
             },
-        }
+        }"""
