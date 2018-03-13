@@ -26,14 +26,14 @@
     <div class="container">
         <div class="py-5 text-center">
             <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-            <h2>{{user.username}}</h2>
+            <!--<h2>{{user.username}}</h2>-->
             <p class="lead">This is your profile info.</p>
         </div>
         {% block content %}
         <form method="post">
             {% csrf_token %}
         {{ form.as_p }}
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+    <a class="btn btn-lg btn-primary btn-block" type="submit" href="{%url 'candidates:candidates_landing'%}">Save</a>
   </form>
 {% endblock %}
 

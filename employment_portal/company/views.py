@@ -11,10 +11,10 @@ class cadmin_edit_profile(FormView):
     template_name = 'cadmin_edit_profile.html'
     form_class = CompanyForm
 
-    def form_valid(self, form):
+    '''def form_valid(self, form):
         form.save()
         messages.success(self.request, "Profile Saved")
-        return render(self.request, 'success.html', self.get_context_data())
+        return render(self.request, 'success.html', self.get_context_data())'''
 
 def cadmin_edit_profile(request):
      return render(request, 'cadmin_edit_profile.html')
