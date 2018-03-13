@@ -4,7 +4,6 @@ from django.http import HttpResponseRedirect
 from .forms import UserSignUp, LoginForm
 from .models import UserProfile
 from candidates.models import Candidate
-from company.models import Employer
 
 def candidatesignup(request):
     if request.method=='POST':
@@ -42,9 +41,6 @@ def companysignup(request):
             p.user_type = 'company'
             p.user = user
             p.save()
-            e = Employer()
-            e.user = user
-            e.save()
             login(request, user)
             return redirect("company:cadmin_edit_profile")
     else:
