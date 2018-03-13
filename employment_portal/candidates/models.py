@@ -25,11 +25,46 @@ class Candidate(models.Model):
 	years_of_experience = models.CharField(max_length=40, choices= YEARS_OF_EXPERIENCE)
 	# Graduation Choices = 2018,2019,2020, 2021, Not applicable
 	Graduation = models.CharField(choices=Graduation_Choices, max_length= 40, blank= True)
-	bio=models.CharField(blank=True, max_length=500)
+
+	#Candidate Image
+	image = models.ImageField(upload_to= 'company/%Y/%m/%d')
+	thumb = models.ImageField(upload_to= 'company/&Y/%m/%d')
+
+	#Active or not
+	is_active = models.BooleanField(default= True)
+	last_modified = models.DateTimeField(auto_now_add= True, auto_now= False)
+	profile_created = models.DateTimeField(auto_now= True, auto_now_add= False)
+
+	#Saving an image
+	def save(self, *args, **kwargs):
+		#from employment_portal.utils import generate_thumbnail
+		#self.thumb = generate_thumbnail(self.image)
+		super(Candidate, self).save(*args, **kwargs)
+
+	#Deleting an image
+	def delete(self, *args, **kwargs):
+		from employment_portal.utils import delete_from_s3
+		delete_from_s3([self.image, self.thumb])
+		super(Candidate, self).delete(*args, **kwargs)
+
+	def __str__(self):
+		return self.user.email
+
+
+def update_profile_user(sender, instance, created, **kwargs):
+	from user_accounts.models import UserProfile
+	if created:
+		UserProfile.objects.filter(user = instance.user).update(user_type = 'Candidate')
+
+
+post_save.connect(update_profile_user, sender = Candidate)
+
+
+class CandidateSkills(models.Model):
+	user = models.OneToOneField(User, on_delete= models.CASCADE)
 	skills_choices_1 = models.CharField(
 		max_length= 25,
-		choices= Skills_choices, unique= True,
-        null=True
+		choices= Skills_choices, unique= True
 	)
 	skills_choices_2 = models.CharField(
 		max_length=25,
@@ -76,43 +111,6 @@ class Candidate(models.Model):
 		choices=Skills_choices, unique=True,
 		null = True
 	)
-	#Candidate Image
-	image = models.ImageField(upload_to= 'company/%Y/%m/%d')
-	thumb = models.ImageField(upload_to= 'company/&Y/%m/%d')
-
-	#Active or not
-	is_active = models.BooleanField(default= True)
-	last_modified = models.DateTimeField(auto_now_add= True, auto_now= False)
-	profile_created = models.DateTimeField(auto_now= True, auto_now_add= False)
-
-	#Saving an image
-	def save(self, *args, **kwargs):
-		#from employment_portal.utils import generate_thumbnail
-		#self.thumb = generate_thumbnail(self.image)
-		super(Candidate, self).save(*args, **kwargs)
-
-	#Deleting an image
-	def delete(self, *args, **kwargs):
-		from employment_portal.utils import delete_from_s3
-		delete_from_s3([self.image, self.thumb])
-		super(Candidate, self).delete(*args, **kwargs)
-
-	def __str__(self):
-		return self.user.email
-
-
-def update_profile_user(sender, instance, created, **kwargs):
-	from user_accounts.models import UserProfile
-	if created:
-		UserProfile.objects.filter(user = instance.user).update(user_type = 'Candidate')
-
-
-post_save.connect(update_profile_user, sender = Candidate)
-
-
-class CandidateSkills(models.Model):
-	user = models.OneToOneField(User, on_delete= models.CASCADE)
-
 
 
 class CandidateResume(models.Model):

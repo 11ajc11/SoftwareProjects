@@ -11,6 +11,4 @@ urlpatterns = [
     #url(r'^candidates_sign_up/', core_views.candidates_landing, name='candidates_landing'),
     url(r'^candidate_smart_search/', core_views.candidate_smart_search, name='candidate_smart_search'),
     url(r'^candidate_solicit/', core_views.candidate_solicit, name='candidate_solicit'),
-    url(r'^candidate_offers/', core_views.candidate_offers, name='candidate_offers'),
-    url(r'^candidateeditprofile/', core_views.candidateeditprofileview.as_view(), name = 'candidateeditprofile'),
 ]

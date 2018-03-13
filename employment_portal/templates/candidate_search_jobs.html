@@ -101,76 +101,7 @@
 
 
         <ul id="myUL" class="list-group mr-5 ml-5">
-            <li class="list-group-item mb-2">
-                <a href="#">
-                        <h3 class="mt-0 mb-1">Job 1</h3>
-                        <h5 class="mt-0 mb-1"> </h5>
-                        <p>Work as an employee on project 1! As a job 1, you'll be implementing deliverable1 in a timely manner</p>
-                        <label class="text-muted">Skills </label>
-                        <ol class="list-inline">
-                            
-                            <li class="list-inline-item">
-                                skill_1
-                            </li>
-                            
-                            <li class="list-inline-item">
-                                skill_2
-                            </li>
-                            
-                            <li class="list-inline-item">
-                                skill_3
-                            </li>
-                            <li class="list-inline-item">
-                                skill_4
-                            </li>
-                            <li class="list-inline-item">
-                                skill_5
-                            </li>
-                            <li class="list-inline-item">
-                                skill_6
-                            </li>
-                            <li class="list-inline-item">
-                                skill_7
-                            </li>
-                            <li class="list-inline-item">
-                                skill_8
-                            </li>
-                            <li class="list-inline-item">
-                                skill_9
-                            </li>
-                            <li class="list-inline-item">
-                                skill_10
-                            </li>
-                        </ol>
-                </a>
-            </li>
-        </ul>
-    </div>
-    
-    
-    <script>
-        function myFunction() {
-        // Declare variables
-        var input, filter, ul, li, a, i;
-        input = document.getElementById('myInput');
-        filter = input.value.toUpperCase();
-        ul = document.getElementById("myUL");
-        li = ul.getElementsByTagName('li');
-
-        // Loop through all list items, and hide those who don't match the search query
-        for (i = 0; i < li.length; i++) {
-            a = li[i].getElementsByTagName("a")[0];
-            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                li[i].style.display = "";
-            } else {
-                li[i].style.display = "none";
-            }
-        }
-        }
-    </script>
-</body>
-    <!--
-    {%for job in job_list%}
+            {%for job in job_list%}
             <li class="list-group-item mb-2">
                 <a href="#">
                         <h3 class="mt-0 mb-1">{{job.job_title}}</h3>
@@ -214,6 +145,31 @@
                         </ol>
                 </a>
             </li>
-            {%endfor%}-->
+            {%endfor%}
+        </ul>
+    </div>
+    
+    
+    <script>
+        function myFunction() {
+        // Declare variables
+        var input, filter, ul, li, a, i;
+        input = document.getElementById('myInput');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName('li');
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+        }
+    </script>
+</body>
 
 </html>
