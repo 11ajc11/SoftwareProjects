@@ -10,7 +10,7 @@
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+    <a class="btn btn-lg btn-primary btn-block" type="submit" href="{%url 'company:cadmin_landing'%}">Save</a>
   </form>
 {% endblock %}
 </body>
