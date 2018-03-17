@@ -20,11 +20,11 @@ def candidatesignup(request):
             p.save()
             cand = Candidate()
             cand.user = user
-            # cand.education = 'Depaul'
-            # cand.date_of_birth = '1223-3-2'
+            cand.education = 'Depaul'
+            cand.date_of_birth = '1223-3-2'
             cand.save()
             login(request, user)
-            return redirect('candidates:candidates_edit_profile')
+            return redirect('candidates:candidateeditprofile')
     else:
         form = UserSignUp()
     return render(request, 'candidate_signup.html', {'form': form})

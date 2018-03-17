@@ -26,148 +26,56 @@
     <div class="container">
       <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h2>View Postings</h2>
+        <h1 class='display-4'>View Postings</h1>
       </div>
         
 
     <ul class="list-group mr-5 ml-5">
-        
+        {%for posting in posting_list%}
         <li class="list-group-item mb-2"><div class="media">
             <div class="media-body">
-                <h5 class="mt-0 mb-1"> </h5>
-                    <p>Description of the Job. hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa
-                aadfasjdf asdf asldflaskdfj asl;dkjfalsk djflaskd;faj lka</p>
-                <label class="text-muted">Skills </label>
+                <label class="text-muted">Job Title</label>
+                <h4 class="mt-0 mb-1">{{posting.job_title}}</h4>
+                <label class="text-muted">Job Description</label>
+                    <p>{{posting.Job_Description}}</p>
+                <label class="text-muted">Skills</label>
                 <ol class="list-inline">
                     <li class="list-inline-item">
-                        Skill 1
+                        {{posting.job_skills_1}}
                     </li>
                     <li class="list-inline-item">
-                        Skill 2
+                        {{posting.job_skills_2}}
                     </li>
                     <li class="list-inline-item">
-                        Skill 3
+                        {{posting.job_skills_3}}
                     </li>
                     <li class="list-inline-item">
-                        Skill 4
+                        {{posting.job_skills_4}}
                     </li>
                     <li class="list-inline-item">
-                        Skill 5
+                        {{posting.job_skills_5}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{posting.job_skills_6}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{posting.job_skills_7}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{posting.job_skills_8}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{posting.job_skills_9}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{posting.job_skills_10}}
                     </li>
                 </ol>
             </div>
             <a href="{% url 'company:cadmin_edit_posting' %}"  class="btn-sm btn-outline-primary ml-2">Edit</a>
             </div>
         </li>
-        
-        <li class="list-group-item mb-2"><div class="media">
-            <div class="media-body">
-                <h5 class="mt-0 mb-1">Intern </h5>
-                    <p>Description of the Job. hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa
-                aadfasjdf asdf asldflaskdfj asl;dkjfalsk djflaskd;faj lka</p>
-                <label class="text-muted">Skills </label>
-                <ol class="list-inline">
-                    <li class="list-inline-item">
-                        Skill 1
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 2
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 3
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 4
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 5
-                    </li>
-                </ol>
-            </div>
-            <a href="{% url 'company:cadmin_edit_posting' %}" class="btn-sm btn-outline-primary ml-2">Edit</a>
-            </div>
-        </li>
-        <li class="list-group-item mb-2"><div class="media">
-            <div class="media-body">
-                <h5 class="mt-0 mb-1">Intern </h5>
-                    <p>Description of the Job. hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa
-                aadfasjdf asdf asldflaskdfj asl;dkjfalsk djflaskd;faj lka</p>
-                <label class="text-muted">Skills </label>
-                <ol class="list-inline">
-                    <li class="list-inline-item">
-                        Skill 1
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 2
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 3
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 4
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 5
-                    </li>
-                </ol>
-            </div>
-            <a href="{% url 'company:cadmin_edit_posting' %}"  class="btn-sm btn-outline-primary ml-2">Edit</a>
-            </div>
-        </li>
-        <li class="list-group-item mb-2"><div class="media">
-            <div class="media-body">
-                <h5 class="mt-0 mb-1">Intern </h5>
-                    <p>Description of the Job. hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa
-                aadfasjdf asdf asldflaskdfj asl;dkjfalsk djflaskd;faj lka</p>
-                <label class="text-muted">Skills </label>
-                <ol class="list-inline">
-                    <li class="list-inline-item">
-                        Skill 1
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 2
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 3
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 4
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 5
-                    </li>
-                </ol>
-            </div>
-            <a href="{% url 'company:cadmin_edit_posting' %}"  class="btn-sm btn-outline-primary ml-2">Edit</a>
-            </div>
-        </li>
-        <li class="list-group-item mb-2"><div class="media">
-            <div class="media-body">
-                <h5 class="mt-0 mb-1">Intern </h5>
-                    <p>Description of the Job. hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhaa
-                aadfasjdf asdf asldflaskdfj asl;dkjfalsk djflaskd;faj lka</p>
-                <label class="text-muted">Skills </label>
-                <ol class="list-inline">
-                    <li class="list-inline-item">
-                        Skill 1
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 2
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 3
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 4
-                    </li>
-                    <li class="list-inline-item">
-                        Skill 5
-                    </li>
-                </ol>
-            </div>
-            <a href="{% url 'company:cadmin_edit_posting' %}" class="btn-sm btn-outline-primary ml-2">Edit</a>
-            </div>
-        </li>
+        {%endfor%}
     </ul>
 
         

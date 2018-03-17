@@ -9,15 +9,15 @@ class Job(models.Model):
 	job_title = models.CharField(max_length=200)
 	location=models.CharField(choices= (('onsite', 'On-site'),('remote','Remote')), max_length=50,
 	                          blank=True, null=True)
-	weekly_hours = models.IntegerField()
-	salary_high = models.IntegerField()
-	salary_low= models.IntegerField()
-	Job_kind = models.CharField(choices = (('full-time', 'Full Time'),('part-time', 'Part Time')),
+	weekly_hours = models.IntegerField(null=True)
+	salary_high = models.IntegerField(null=True)
+	salary_low= models.IntegerField(null=True)
+	Job_kind = models.CharField(null=True,choices = (('full-time', 'Full Time'),('part-time', 'Part Time')),
 	                            max_length=50)
 	Job_Description = models.CharField(max_length= 500)
-	is_featured = models.BooleanField(default=False)
-	is_active = models.BooleanField(default=True)
-	recruiter = models.ForeignKey(Recruiter, related_name='jobs', on_delete=models.CASCADE)
+	is_featured = models.NullBooleanField(null=True,default=False)
+	is_active = models.NullBooleanField(null=True,default=True)
+	recruiter = models.ForeignKey(Recruiter, related_name='jobs', on_delete=models.CASCADE,null=True)
 	last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
 	job_created = models.DateTimeField(auto_now_add=True, auto_now=False)
 	job_skills_1 = models.CharField(
