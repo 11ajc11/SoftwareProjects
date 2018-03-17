@@ -5,7 +5,7 @@ from .forms import CompanyForm
 from .models import Employer
 from recruiters.models import Recruiter
 
-# Create your views here.
+#Create your views here.
 def cadmin_landing(request):
     uid = request.user.id
     employer=Employer.objects.get(user_id=uid)
@@ -25,7 +25,8 @@ def cadmin_edit_profile(request):
             cand.website = website
             cand.bio = bio
             cand.save()
-            pass
+            context = {'bio': cand.bio, 'name': cand.user, 'website': cand.website}
+            return render(request, 'cadmin_landing.html', context)
     else:
         form = CompanyForm
     return render(request, 'cadmin_edit_profile.html', {'form':form})
