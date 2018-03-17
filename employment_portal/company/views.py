@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.views.generic.edit import FormView
 from .forms import CompanyForm
 from .models import Employer
+from recruiters.models import Recruiter
 
 # Create your views here.
 def cadmin_landing(request):
@@ -54,4 +55,6 @@ def cadmin_view_postings(request):
     return render(request, 'cadmin_view_postings.html')
 
 def cadmin_view_recruiters(request):
-    return render(request, 'cadmin_view_recruiters.html')
+    recruiter_list=Recruiter.objects.all()
+    context={'recruiter_list':recruiter_list}
+    return render(request, 'cadmin_view_recruiters.html',context)

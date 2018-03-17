@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 def recruiters_landing(request):
     return render(request,"recruiters_landing.html")
+    
 def recruiters_postings(request):
     return render(request,"recruiters_postings.html")
 def recruiters_sent_offers(request):

@@ -32,47 +32,16 @@
         
 
     <ul class="list-group ml-1 mr-1">
+        {%for recruiter in recruiter_list%}
         <li class="list-group-item mb-3"><div class="media">
             <div class="media-body">
-                <h5 class="mt-0 mb-1">Recruiter 1</h5>
+                <h5 class="mt-0 mb-1">recruiter.user</h5>
                     Surface Level Note an employer can leave. The recruiter name, for example.
             </div>
             <a href="{% url 'company:cadmin_edit_recruiter' %}" class="btn-sm btn-outline-primary ml-2">Edit</a>
             </div>
         </li>
-        <li class="list-group-item mb-3">
-            <div class="media">
-            <div class="media-body">
-                <h5 class="mt-0 mb-1">Recruiter 2</h5>
-                    Surface Level Note an employer can leave. The recruiter name, for example.
-            </div>
-            <a href="{% url 'company:cadmin_edit_recruiter' %}" class="btn-sm btn-outline-secondary ml-2">Edit</a>
-            </div>
-        </li>
-        <li class="list-group-item mb-3"><div class="media">
-            <div class="media-body">
-                <h5 class="mt-0 mb-1">Recruiter 3</h5>
-                    Surface Level Note an employer can leave. The recruiter name, for example.
-            </div>
-            <a href="{% url 'company:cadmin_edit_recruiter' %}" class="btn-sm btn-outline-secondary ml-2">Edit</a>
-            </div>
-        </li>
-        <li class="list-group-item mb-3"><div class="media">
-            <div class="media-body">
-                <h5 class="mt-0 mb-1">Recruiter 4</h5>
-                    Surface Level Note an employer can leave. The recruiter name, for example.
-            </div>
-            <a href="{% url 'company:cadmin_edit_recruiter' %}" class="btn-sm btn-outline-secondary ml-2">Edit</a>
-            </div>
-        </li>
-        <li class="list-group-item mb-3"><div class="media">
-            <div class="media-body">
-                <h5 class="mt-0 mb-1">Recruiter 5</h5>
-                    Surface Level Note an employer can leave. The recruiter name, for example.
-            </div>
-            <a href="{% url 'company:cadmin_edit_recruiter' %}" class="btn-sm btn-outline-secondary ml-2">Edit</a>
-            </div>
-        </li>
+        {%endfor%}
     </ul>
 
         

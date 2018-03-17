@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Edit Profile</title>
+    <title>Candidate Landing</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
@@ -53,7 +53,7 @@
     <div class="container">
         <div class="py-5 text-center">
             <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-            <h2>{{username}}</h2>
+            <h1 class="display-1">{{username}}</h1>
             <p id="location">{{nearest_metropolitan_city}}</p>
             <a href="{% url 'candidates:candidateeditprofile' %}">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Edit Profile</button>
@@ -81,7 +81,7 @@
                     </div>
 
                 </div>
-                <div class="col-xl-8 order-xl-1">
+                
                     <h4>Education</h4>
                     <div class="col-xl-6 mb-3">
                         <ul class="list-group">
@@ -90,7 +90,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                
 
                 <div class="col-xl-8 order-xl-1">
 
