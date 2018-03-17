@@ -6,7 +6,10 @@ from .models import Employer
 
 # Create your views here.
 def cadmin_landing(request):
-    return render(request,'cadmin_landing.html')
+    uid = request.user.id
+    employer=Employer.objects.get(user_id=uid)
+    context={'bio':employer.bio,'name':employer.user,'website':employer.website}
+    return render(request,'cadmin_landing.html',context)
 
 def cadmin_edit_profile(request):
     #template_name = 'cadmin_edit_profile.html'
