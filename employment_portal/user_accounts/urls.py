@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^companysignup/', core_views.companysignup, name='companysignup'),
     url(r'^candidatelogin/', core_views.candidatelogin, name='candidatelogin'),
     url(r'^companylogin/', core_views.companylogin, name='companylogin'),
+    url(r'^recruiter_login/', core_views.recruiter_login, name='recruiter_login'),
 ]

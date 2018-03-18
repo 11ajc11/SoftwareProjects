@@ -6,6 +6,7 @@ from .models import UserProfile
 from candidates.models import Candidate
 from company.models import Employer
 
+
 def candidatesignup(request):
     if request.method=='POST':
         form = UserSignUp(request.POST)
@@ -68,3 +69,12 @@ def companylogin(request):
             login(request, user)
             return redirect("company:cadmin_landing")# Redirect to a success page.
     return render(request, 'cadmin_login.html', {'form': form})
+
+def recruiter_login(request):
+   form = LoginForm(request.POST or None)
+   if request.POST and form.is_valid():
+       user = form.login(request)
+       if user:
+           login(request, user)
+           return redirect("recruiters:recruiters_landing")
+   return render(request, 'recruiter_login.html', {'form': form})

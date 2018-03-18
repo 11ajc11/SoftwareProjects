@@ -1,10 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.views.generic.edit import FormView
-from .forms import CompanyForm, AddPostingForm
+from .forms import CompanyForm, AddPostingForm,AddRecruiterForm
 from .models import Employer
 from recruiters.models import Recruiter
 from postings.models import Job
+from user_accounts.models import UserProfile
+from django.contrib.auth import authenticate
+
+
 
 #Create your views here.
 def cadmin_landing(request):
@@ -92,8 +96,29 @@ def cadmin_add_posting(request):
     return render(request, 'cadmin_add_posting.html',{'form':form})
 
 def cadmin_add_recruiter(request):
-
-    return render(request, 'cadmin_add_recruiter.html')
+    if request.method=='POST':
+        form = AddRecruiterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            p = UserProfile()
+            p.user_type='recruiter'
+            p.user = user
+            p.save()
+            uid = request.user.id
+            employer=Employer.objects.get(user_id=uid)
+            recruiter = Recruiter()
+            recruiter.user = user
+            recruiter.education = 'Depaul'
+            recruiter.date_of_birth = '1223-3-2'
+            recruiter.Employer_Name=employer
+            recruiter.save()
+            return redirect('company:cadmin_view_recruiters')
+    else:
+        form = AddRecruiterForm()
+    return render(request, 'cadmin_add_recruiter.html',{'form':form})
 
 def cadmin_edit_posting(request):
     return render(request,'cadmin_edit_posting.html')
@@ -108,6 +133,7 @@ def cadmin_view_postings(request):
     return render(request, 'cadmin_view_postings.html',context)
 
 def cadmin_view_recruiters(request):
-    recruiter_list=Recruiter.objects.all()
+    uid = request.user.id
+    recruiter_list=Recruiter.objects.filter(Employer_Name__user_id=uid)
     context={'recruiter_list':recruiter_list}
     return render(request, 'cadmin_view_recruiters.html',context)

@@ -25,7 +25,7 @@
 
     <div class="container">
       <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <!--<img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->
         <h2>View Recruiters</h2>
         <a href="{% url 'company:cadmin_add_recruiter' %}" class="btn-lg btn-primary">Add Recruiter</a>
       </div>
@@ -35,24 +35,15 @@
         {%for recruiter in recruiter_list%}
         <li class="list-group-item mb-3"><div class="media">
             <div class="media-body">
-                <h5 class="mt-0 mb-1">recruiter.user</h5>
-                    Surface Level Note an employer can leave. The recruiter name, for example.
+                <h5 class="mt-0 mb-1">{{recruiter.user}}</h5>
+                    {{recruiter.Employer_Name}}
             </div>
-            <a href="{% url 'company:cadmin_edit_recruiter' %}" class="btn-sm btn-outline-primary ml-2">Edit</a>
+            <a href="{% url 'company:cadmin_edit_recruiter' %}" class="btn btn-outline-primary ml-2">Edit</a>
             </div>
         </li>
         {%endfor%}
     </ul>
 
-        
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017-2018 Company Name</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-      </footer>
     </div>
 
     <!-- Bootstrap core JavaScript

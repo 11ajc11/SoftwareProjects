@@ -2,7 +2,8 @@ from .models import Employer
 from postings.models import Job
 from django.forms import ModelForm, Textarea,TextInput,ChoiceField
 from django.utils.translation import gettext_lazy as _
-
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 
 class CompanyForm(ModelForm):
@@ -63,7 +64,10 @@ class AddPostingForm(ModelForm):
             # 'job_skills_10' : ChoiceField (),
             }
 
-
+class AddRecruiterForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ('username', 'password1', 'password2', 'email',)
 
     """class Meta:
         model=Employer

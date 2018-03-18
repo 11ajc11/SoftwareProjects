@@ -24,55 +24,18 @@
 
     <div class="container">
       <div class="py-5 text-center">
-        <h2>Create Recruiter Profile</h2>
+        <h2 class='display-4'>Create Recruiter Account</h2>
       </div>
-
-      <div class="row">
-        <div class="col-xl">
-          <h4 class="mb-3">Create Recruiter</h4>
+        {% block content %}
+        <form method="post">
+        {% csrf_token %}
+        {{ form }}
             
-            <div class="mb-5">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Username</span>
-                </div>
-                <input type="text" class="form-control" id="username" placeholder="Xx_pwns_employees_xX" required>
-                <div class="invalid-feedback" style="width: 100%;">
-                  Your username is required.
-                </div>
-              </div>
-            </div>
-            
-            <div class="mb-5">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Password</span>
-                </div>
-                <input type="text" class="form-control" id="username" placeholder="CoDisLif3" required>
-                <div class="invalid-feedback" style="width: 100%;">
-                  A password is required.
-                </div>
-              </div>
-            </div>
-            
-            <div class="form-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Notes</span>
-                </div>
-                <textarea class="form-control" rows="5" id="comment"></textarea>
-            </div>
-        <a href="{% url 'company:cadmin_view_recruiters' %}" class="btn-lg btn-primary">Create</a>
+        
+       <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+        {%endblock%}
         </div>
-      </div>
 
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017-2018 Company Name</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-      </footer>
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -107,3 +70,40 @@
     </script>
   </body>
 </html>
+<!--
+<div class="row">
+        <div class="col-xl">
+          <h4 class="mb-3">Create Recruiter</h4>
+            
+            <div class="mb-5">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Username</span>
+                </div>
+                <input type="text" class="form-control" id="username" placeholder="Xx_pwns_employees_xX" required>
+                <div class="invalid-feedback" style="width: 100%;">
+                  Your username is required.
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-5">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Password</span>
+                </div>
+                <input type="text" class="form-control" id="username" placeholder="CoDisLif3" required>
+                <div class="invalid-feedback" style="width: 100%;">
+                  A password is required.
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Notes</span>
+                </div>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+        <a href="{% url 'company:cadmin_view_recruiters' %}" class="btn-lg btn-primary">Create</a>
+-->
