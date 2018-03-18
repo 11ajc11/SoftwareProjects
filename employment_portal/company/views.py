@@ -51,9 +51,10 @@ def cadmin_edit_profile(request):
      #return render(request, 'cadmin_edit_profile.html')
 
 def cadmin_add_posting(request):
+    uid = request.user.id
     if request.method == 'POST':
-        print('yeahdude')
-        form = AddPostingForm(request.POST)
+        print(request.POST)
+        form = AddPostingForm(uid,request.POST)
         if form.is_valid():
             job_title = form.cleaned_data.get('job_title')
             Job_Description = form.cleaned_data.get('Job_Description')
@@ -68,13 +69,11 @@ def cadmin_add_posting(request):
             job_skills_8=form.cleaned_data.get('job_skills_8')
             job_skills_9=form.cleaned_data.get('job_skills_9')
             job_skills_10=form.cleaned_data.get('job_skills_10')
-
-            uid = request.user.id
             employer=Employer.objects.get(user_id=uid)
             posting = Job()
             posting.job_title=job_title
             posting.Job_Description=Job_Description
-            #posting.recruiter=recruiter
+            posting.recruiter=recruiter
             posting.job_skills_1=job_skills_1
             posting.job_skills_2=job_skills_2
             posting.job_skills_3=job_skills_3
@@ -88,11 +87,12 @@ def cadmin_add_posting(request):
             posting.Employer_Name=employer
             posting.weekly_hours=40;
             posting.save()
-
-            return render(request, 'cadmin_view_postings.html')
+            posting_list=Job.objects.filter(Employer_Name__user_id=uid)
+            context={'posting_list':posting_list}
+            return render(request, 'cadmin_view_postings.html',context)
     else:
-        print('nahdude')
-        form = AddPostingForm
+        form = AddPostingForm(uid)
+
     return render(request, 'cadmin_add_posting.html',{'form':form})
 
 def cadmin_add_recruiter(request):

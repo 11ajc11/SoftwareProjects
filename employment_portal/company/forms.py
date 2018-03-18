@@ -4,6 +4,7 @@ from django.forms import ModelForm, Textarea,TextInput,ChoiceField
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from recruiters.models import Recruiter
 
 
 class CompanyForm(ModelForm):
@@ -24,14 +25,19 @@ class CompanyForm(ModelForm):
             widgets={'bio' : Textarea (attrs={'cols':40,'rows':15,'class':"input-group-text"}),'name_english' : TextInput (attrs={'cols':50,'rows':1,'class':"input-group-text"}),'website' : TextInput (attrs={'cols':40,'rows':1, 'class':"mb-4 w-100 input-group-text"})}
 
 class AddPostingForm(ModelForm):
+    def __init__(self,uid,*args,**kwargs):
+        super (AddPostingForm,self ).__init__(*args,**kwargs)
+        self.fields['recruiter'].queryset=Recruiter.objects.filter(Employer_Name__user_id=uid)
+
     class Meta:
             model = Job
-            fields = ('job_title','Job_Description', 'job_skills_1','job_skills_2',
+            fields = ('job_title','Job_Description','recruiter',  'job_skills_1','job_skills_2',
             'job_skills_3','job_skills_4','job_skills_5','job_skills_6','job_skills_7',
             'job_skills_8','job_skills_9','job_skills_10')
             labels = {
                 'job_title': _('Job Title'),
                 'Job_Description': _('Job Description'),
+                'recruiter':_('recruiter'),
                 'job_skills_1': _('Skill 1'),
                 'job_skills_2':_('Skill 2'),
                 'job_skills_3': _('Skill 3'),
@@ -51,17 +57,6 @@ class AddPostingForm(ModelForm):
             widgets={
             'Job_Description' : Textarea (attrs={'cols':40,'rows':15,}),
             'job_title' : TextInput (attrs={'cols':40,'rows':1,}),
-            #'recruiter' : ChoiceField (),
-            # 'job_skills_1' : ChoiceField (),
-            # 'job_skills_2' : ChoiceField (),
-            # 'job_skills_3' : ChoiceField (),
-            # 'job_skills_4' : ChoiceField (),
-            # 'job_skills_5' : ChoiceField (),
-            # 'job_skills_6' : ChoiceField (),
-            # 'job_skills_7' : ChoiceField (),
-            # 'job_skills_8' : ChoiceField (),
-            # 'job_skills_9' : ChoiceField (),
-            # 'job_skills_10' : ChoiceField (),
             }
 
 class AddRecruiterForm(UserCreationForm):

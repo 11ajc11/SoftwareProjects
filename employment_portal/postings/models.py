@@ -21,53 +21,53 @@ class Job(models.Model):
 	last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
 	job_created = models.DateTimeField(auto_now_add=True, auto_now=False)
 	job_skills_1 = models.CharField(
-		max_length= 25,
-		choices= Skills_choices, unique= True,
+		max_length= 50,
+		choices= Skills_choices,
 		null=True
 	)
 	job_skills_2 = models.CharField(
-		max_length=25,
-		choices=Skills_choices, unique=True,
+		max_length=50,
+		choices=Skills_choices,
 		null=True
 	)
 	job_skills_3 = models.CharField(
-		max_length=25,
-		choices=Skills_choices, unique=True,
+		max_length=50,
+		choices=Skills_choices,
 		null=True
 	)
 	job_skills_4 = models.CharField(
-		max_length=25,
-		choices=Skills_choices, unique=True,
+		max_length=50,
+		choices=Skills_choices,
 		null=True
 	)
 	job_skills_5 = models.CharField(
-		max_length=25,
-		choices=Skills_choices, unique=True,
+		max_length=50,
+		choices=Skills_choices,
 		null=True
 	)
 	job_skills_6 = models.CharField(
-		max_length=25,
-		choices=Skills_choices, unique=True,
+		max_length=50,
+		choices=Skills_choices,
 		null=True
 	)
 	job_skills_7 = models.CharField(
-		max_length=25,
-		choices=Skills_choices, unique=True,
+		max_length=50,
+		choices=Skills_choices,
 		null=True
 	)
 	job_skills_8 = models.CharField(
-		max_length=25,
-		choices=Skills_choices, unique=True,
+		max_length=50,
+		choices=Skills_choices,
 		null=True
 	)
 	job_skills_9 = models.CharField(
-		max_length=25,
-		choices=Skills_choices, unique=True,
+		max_length=50,
+		choices=Skills_choices,
 		null=True
 	)
 	job_skills_10 = models.CharField(
-		max_length=25,
-		choices=Skills_choices, unique=True,
+		max_length=50,
+		choices=Skills_choices,
 		null=True
 	)
 	def __str__(self):

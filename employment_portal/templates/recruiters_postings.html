@@ -27,41 +27,56 @@
     <div class="container">
         
       <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h2>My Postings</h2>
+        <h2 class='display-3'>My Postings</h2>
       </div>
 
       <div class="row">
           
+        {%for job in job_list%}
         <div class='card w-100 mb-3'>
-            <div class="media ml-2 mr-2 mt-2 mb-2" style="border-color: darkblue; border-bottom-width: 1px; border-style">
-            <div class=" display-1 mr-3 ">1</div>
+            <div class="media ml-4 mr-4 mt-3 mb-3" style="border-color: darkblue; border-bottom-width: 1px; border-style">
             
             <div class="media-body">
-            <h1 class="mt-0">Job Title</h1>
-                Descripton of the Job->>>here's a ted cruz tweet: Snowflake, believing online propaganda: "OMG w/o net neutrality, the Internet is gone!" Informed observer: "You know, the FCC issued that rule in 2015. The Internet grew up wonderfully free from govt regulation & this restores the status quo ante."  Snowflake: "Uh, never mind..."
+            <h1 class="mt-0">{{job.job_title}}</h1>
+                {{job.Job_Description}}
                 <hr>
                 <ol class="list-inline">
                     <li class="list-inline-item">
-                        Skill 1
+                        {{job.job_skills_1}}
                     </li>
                     <li class="list-inline-item">
-                        Skill 2
+                        {{job.job_skills_2}}
                     </li>
                     <li class="list-inline-item">
-                        Skill 3
+                        {{job.job_skills_3}}
                     </li>
                     <li class="list-inline-item">
-                        Skill 4
+                        {{job.job_skills_4}}
                     </li>
                     <li class="list-inline-item">
-                        Skill 5
+                        {{job.job_skills_5}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{job.job_skills_6}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{job.job_skills_7}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{job.job_skills_8}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{job.job_skills_9}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{job.job_skills_10}}
                     </li>
                 </ol>
             </div>
-            <a href="{% url 'recruiters:recruiters_view_post' %}" class="btn btn-outline-info">View</a>
+
             </div>
         </div>
+          {%endfor%}
           
           
           
