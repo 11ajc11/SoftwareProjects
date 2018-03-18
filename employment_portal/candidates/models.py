@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from phonenumber_field.modelfields import PhoneNumberField
 from django.db.models.signals import post_save
+from datetime import datetime
 
 from employment_portal.choices import (EDU_CHOICES, Skills_choices,
                                        CITIES_CHOICES, MAJOR_CHOICES, Graduation_Choices, YEARS_OF_EXPERIENCE)
@@ -10,7 +11,7 @@ from employment_portal.choices import (EDU_CHOICES, Skills_choices,
 class Candidate(models.Model):
 	#Personal Info
 	user = models.OneToOneField(User, on_delete= models.CASCADE)
-	date_of_birth = models.DateField()
+	date_of_birth = models.DateField(blank=True, default=datetime.now())
 	bio=models.CharField(blank=True, max_length=500)
 	gender = models.CharField(choices =(('male', 'Male'), ('female', 'Female'), ('other','Other'),), max_length= 10)
 	nearest_metropolitan_city = models.CharField(max_length= 50,

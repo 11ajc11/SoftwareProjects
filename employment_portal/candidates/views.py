@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Candidate
+from candidates.models import Candidate
 from .admin import CandidateAdmin
 from company.models import Employer
 from postings.models import Job,JobRequirements
@@ -9,16 +9,56 @@ from django.views.generic.edit import FormView
 from .admin import CandidateAdmin
 
 # Create your views here.
-class candidateeditprofileview(FormView):
-    template_name = 'candidates_edit_profile.html'
-    form_class = CandidateForm
-    success_url = 'success.html'
+def candidateeditprofileview(request):
+    if request.method == 'POST':
+        form = CandidateForm(request.POST)
+        if form.is_valid():
+            bio = form.cleaned_data.get('bio')
+            education_university = form.cleaned_data.get('education_university')
+            skills_choices_1 = form.cleaned_data.get('skills_choices_1')
+            skills_choices_2 = form.cleaned_data.get('skills_choices_2')
+            skills_choices_3 = form.cleaned_data.get('skills_choices_3')
+            skills_choices_4 = form.cleaned_data.get('skills_choices_4')
+            skills_choices_5 = form.cleaned_data.get('skills_choices_5')
+            skills_choices_6 = form.cleaned_data.get('skills_choices_6')
+            skills_choices_7 = form.cleaned_data.get('skills_choices_7')
+            skills_choices_8 = form.cleaned_data.get('skills_choices_8')
+            skills_choices_9 = form.cleaned_data.get('skills_choices_9')
+            skills_choices_10 = form.cleaned_data.get('skills_choices_10')
+            uid = request.user.id
+            cand = Candidate.objects.get(user_id=uid)
+            cand.bio = bio
+            cand.education_university = education_university
+            cand.skills_choices_1 = skills_choices_1
+            cand.skills_choices_2 = skills_choices_2
+            cand.skills_choices_3 = skills_choices_3
+            cand.skills_choices_4 = skills_choices_4
+            cand.skills_choices_5 = skills_choices_5
+            cand.skills_choices_6 = skills_choices_6
+            cand.skills_choices_7 = skills_choices_7
+            cand.skills_choices_8 = skills_choices_8
+            cand.skills_choices_9 = skills_choices_9
+            cand.skills_choices_10 = skills_choices_10
+            cand.save()
+            context = {'bio': cand.bio, 'education_university': cand.education_university,
+                       'skills_choices_1': cand.skills_choices_1, 'skills_choices_6': cand.skills_choices_6,
+                       'skills_choices_2': cand.skills_choices_2, 'skills_choices_7': cand.skills_choices_7,
+                       'skills_choices_3': cand.skills_choices_3, 'skills_choices_8': cand.skills_choices_8,
+                       'skills_choices_4': cand.skills_choices_4, 'skills_choices_9': cand.skills_choices_9,
+                       'skills_choices_5': cand.skills_choices_5, 'skills_choices_10': cand.skills_choices_10,
+                       }
+            return render(request, 'candidates_landing.html', context)
+    else:
+        form = CandidateForm
+    return render(request, 'candidates_edit_profile.html', {'form': form})
+
+
 # Create your views here.
 def candidates_landing(request):
     uid = request.user.id
     user = Candidate.objects.get(user_id=uid)
     context = {
-        'username':user.user,
+        #'username':user.user,
         'nearest_metropolitan_city':user.nearest_metropolitan_city,
         'education': user.education_university,
         'bio':user.bio,
@@ -33,7 +73,7 @@ def candidates_landing(request):
         "skills_choice_9":user.skills_choices_9,
         "skills_choice_10":user.skills_choices_10,
     }
-    return render(request, "candidates_landing.html",context)
+    return render(request, 'candidates_landing.html',context)
 
 
 
