@@ -11,6 +11,7 @@ class UserSignUp(UserCreationForm):
         fields = ('username', 'password1', 'password2', 'email',)
 
 
+
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=255, required=True,widget=forms.TextInput(attrs={'placeholder':"Username",'class': "form-control"}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':"Password",'class': "form-control"}), required=True)
