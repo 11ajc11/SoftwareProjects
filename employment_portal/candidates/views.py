@@ -8,6 +8,7 @@ from candidates.forms import CandidateForm
 from django.views.generic.edit import FormView
 from .admin import CandidateAdmin
 from datetime import datetime
+from recruiters.models import Recruiter
 
 # Create your views here.
 def candidateeditprofileview(request):
@@ -99,7 +100,43 @@ def candidate_search_jobs(request):
     return render(request, "candidate_search_jobs.html", context)
 
 def candidate_smart_search(request):
-    return render(request,"candidate_smart_search.html")
+    uid = request.user.id
+    Cand = Candidate.objects.get(user_id = uid)
+    Skills = [Cand.skills_choices_1, Cand.skills_choices_2,
+            Cand.skills_choices_3, Cand.skills_choices_4,
+            Cand.skills_choices_5, Cand.skills_choices_6,
+            Cand.skills_choices_7, Cand.skills_choices_8,
+            Cand.skills_choices_9, Cand.skills_choices_10]
+    joblist = Job.objects.all()
+    scorelist=[]
+    for job in joblist:
+        rating = 0
+        if job.job_skills_1.strip() == Cand.skills_choices_1.strip() or Cand.skills_choices_2.strip():
+            rating += 10
+        if job.job_skills_2.strip() == Cand.skills_choices_2.strip() or Cand.skills_choices_3.strip():
+            rating += 9
+        if job.job_skills_3.strip() == Cand.skills_choices_3.strip() or Cand.skills_choices_4.strip():
+            rating += 8
+        if job.job_skills_4.strip() == Cand.skills_choices_4.strip() or Cand.skills_choices_5.strip():
+            rating += 7
+        if job.job_skills_5.strip() == Cand.skills_choices_5.strip():
+            rating += 6
+        if job.job_skills_6.strip() == Cand.skills_choices_6.strip():
+            rating += 5
+        if job.job_skills_7.strip() == Cand.skills_choices_7.strip():
+            rating += 4
+        if job.job_skills_8.strip() == Cand.skills_choices_8.strip():
+            rating += 3
+        if job.job_skills_9.strip() == Cand.skills_choices_9.strip():
+            rating += 2
+        if job.job_skills_10.strip() == Cand.skills_choices_10.strip():
+            rating += 1
+
+        if rating >= 5:
+            scorelist.append((rating,job))
+    scorelist=sorted(scorelist, key=lambda temp: temp[0], reverse=True)
+    context={'scorelist':scorelist}
+    return render(request,"candidate_smart_search.html", context)
 
 def candidate_solicit(request):
     uid=request.user.id
@@ -112,6 +149,10 @@ def candidate_offers(request):
     uid=request.user.id
     cand=Candidate.objects.get(user_id=uid)
     offer_list=Offer_Invitation.objects.filter(candidate__user_id=uid)
+    temp=[]
+    for offer in offer_list:
+        recruiter=Recruiter.objects.get(Employer_Name=offer.job.Employer_Name)
+        temp.add((offer,recruiter))
     context={"offer_list":offer_list}
     return render(request,"candidate_offers.html",context)
 

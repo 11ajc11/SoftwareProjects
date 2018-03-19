@@ -28,66 +28,63 @@
         <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
         <h2>View Solicitations</h2>
       </div>
-    
+    {%for solicitation in solicitation_list%}
     <div class="card w-100 mb-4">
         <div class="media m-2">
             <div class="media-body">
-            <h4>xxXX_3l1t3_h@xx05_XXxx</h4>
+            <label class="text-muted">Username</label>
+            <h4>{{solicitation.candidate.user}}</h4>
             <label class="text-muted">Bio</label>
-            <h5>hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me </h5>
+            <h5>{{solicitation.candidate.bio }}</h5>
             <label class='text-muted'>Skills</label>
             <ol class="list-inline">
                     <li class="list-inline-item">
-                        Skill 1
+                        {{solicitation.candidate.skills_choices_1}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 2
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_2}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 3
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_3}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 4
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_4}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 5
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_5}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 1
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_6}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 2
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_7}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 3
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_8}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 4
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_9}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 5
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_10}}
                     </li>
                 </ol>
-            <label class='text-muted'>Location</label>
-            <h5>Nueva York</h5>
-            
-            <label class='text-muted'>Contact Info</label>
-            <h5>iamahacker@gmail.com</h5>
             <hr>
             <label class='text-muted'>Position Desired</label>
             <div class="media mt-3">
               <a class="pr-3" href="#">
               </a>
               <div class="media-body">
-                <h5 class="mt-0">Job Title</h5>
-                Job DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob DescriptionJob Description
+                <h5 class="mt-0">{{solicitation.job.job_title}}</h5>
+                  <h6>{{solicitation.job.Job_Description}}</h6>
               </div>
             </div>
             <br>
-            <button class="btn btn-warning">Delete Solicitation</button>
+            <!--<button class="btn btn-warning">Delete Solicitation</button>-->
           </div>
         </div>
     </div>
+        {%endfor%}
         
     </div>
 

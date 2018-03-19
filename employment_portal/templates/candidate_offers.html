@@ -28,64 +28,59 @@
 
 
         <ul class="list-group mr-5 ml-5">
+        {%for offer in offer_list%}
            <li class="list-group-item mb-2">
                 <div class="media">
                     <div class="media-body">
-                        <h5 class="mt-0 mb-1">Job 1</h5>
-                        <p>Work as an employee on project 1! As a job 1, you'll be implementing deliverable1 in a timely manner</p>
+                        <h3>Recruiter</h3>
+                        <h5>{{offer.0}}</h5>
+                         <hr class="mb-4">
+                        <label class='text-muted'>Job Title</label>
+                        <h5 class="mt-0 mb-1">{{offer.1.job.job_title}}</h5>
+                        <p>{{offer.1.job.Job_Description}}</p>
                         <label class="text-muted">Skills </label>
                         <ol class="list-inline">
                             <li class="list-inline-item">
-                                Skill 1
+                                {{offer.1.job.job_skills_1}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 2
+                                {{offer.1.job.job_skills_2}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 3
+                                {{offer.1.job.job_skills_3}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 4
+                                {{offer.1.job.job_skills_4}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 5
+                                {{offer.1.job.job_skills_5}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 6
+                                {{offer.1.job.job_skills_6}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 7
+                                {{offer.1.job.job_skills_7}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 8
+                                {{offer.1.job.job_skills_8}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 9
+                                {{offer.1.job.job_skills_9}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 10
+                                {{offer.1.job.job_skills_10}}
                             </li>
                         </ol>
+                        <label class="text-muted">Company</label>
+                        <p>{{offer.1.job.Employer_Name}}</p>
+
                     </div>
                 </div>
             </li>
+            {%endfor%}
         </ul>
 
 
-        <footer class="my-5 pt-5 text-muted text-center text-small">
-            <p class="mb-1">&copy; 2017-2018 Company Name</p>
-            <ul class="list-inline">
-                <li class="list-inline-item">
-                    <a href="#">Privacy</a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="#">Terms</a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="#">Support</a>
-                </li>
-            </ul>
-        </footer>
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -166,4 +161,3 @@
                 </div>
             </li>
             {%endfor%}-->
- No newline at end of file

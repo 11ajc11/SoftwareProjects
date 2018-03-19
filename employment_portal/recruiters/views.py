@@ -3,6 +3,7 @@ from .models import Recruiter
 from company.models import Employer
 from recruiters.models import Recruiter
 from postings.models import Job
+from offer_solicit.models import Solicitation
 def recruiters_landing(request):
     uid = request.user.id
     recruiter=Recruiter.objects.get(user_id=uid)
@@ -25,4 +26,23 @@ def recruiters_smart_match(request):
 def recruiters_view_post(request):
     return render(request,"recruiters_view_post.html")
 def recruiters_view_solicitations(request):
-    return render(request,"recruiters_view_solicitations.html")
+    uid = request.user.id
+    recruiter=Recruiter.objects.get(user_id=uid)
+    solicitation_list=Solicitation.objects.filter(job__recruiter=recruiter)
+    context={'solicitation_list':solicitation_list}
+    return render(request,"recruiters_view_solicitations.html",context)
+    
+def recruiter_cand_detail(request, cand_id, job_id):
+
+    if request.method == 'POST':
+        uid = request.user.id
+        new = Offer_Invitation()
+        new.candidate = Candidate.objects.get(user_id=uid)
+        new.job = Job.objects.get(pk=job_id)
+        new.created = datetime.now()
+        new.save()
+        job_list = Job.objects.all()
+        context = {"job_list": job_list}
+        return render(request, "recruiters_smart_match.html", context)
+    else:
+        return render(request, 'recruiters_landing.html')

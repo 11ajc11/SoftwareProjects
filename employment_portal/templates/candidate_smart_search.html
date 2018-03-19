@@ -58,49 +58,57 @@
     <div class="container">
 
         <ul class="list-group mr-5 ml-5">
-
+            {%for postingscore in scorelist%}
             <li class="list-group-item mb-2">
                 <div class="media">
                     <div class="media-body">
-                        <h5 class="mt-0 mb-1"> </h5>
-                        <p>This is an example matching</p>
+                        <label class="text-muted">Job Title</label>
+                        <h3 class="mt-0 mb-1">{{postingscore.1.job_title}}</h3>
+                        <label class="text-muted">Job Description</label>
+                        <p>{{postingscore.1.Job_Description}}</p>
                         <label class="text-muted">Skills </label>
                         <ol class="list-inline">
                             <li class="list-inline-item">
-                                Skill 1
+                                {{postingscore.1.job_skills_1}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 2
+                                {{postingscore.1.job_skills_2}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 3
+                                {{postingscore.1.job_skills_3}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 4
+                                {{postingscore.1.job_skills_4}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 5
+                                {{postingscore.1.job_skills_5}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 6
+                                {{postingscore.1.job_skills_6}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 7
+                                {{postingscore.1.job_skills_7}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 8
+                                {{postingscore.1.job_skills_8}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 9
+                                {{postingscore.1.job_skills_9}}
                             </li>
                             <li class="list-inline-item">
-                                Skill 10
+                                {{postingscore.1.job_skills_10}}
                             </li>
                         </ol>
+                        <label class="text-muted">Score</label>
+                        <h3>{{postingscore.0}}</h3>
+                        {%if postingscore.0 >= 40 %}
+                        <span class="badge badge-pill badge-info">Best Fit</span>
+                        {%endif%}
                     </div>
                     <a class="nav-link" href="recruiter_view_post.html">View Job</a>
                 </div>
             </li>
+            {%endfor%}
 
         </ul>
     </div>
