@@ -31,9 +31,9 @@ class AddPostingForm(ModelForm):
 
     class Meta:
             model = Job
-            fields = ('job_title','Job_Description','recruiter',  'job_skills_1','job_skills_2',
-            'job_skills_3','job_skills_4','job_skills_5','job_skills_6','job_skills_7',
-            'job_skills_8','job_skills_9','job_skills_10')
+            fields = ('job_title','Job_Description', 'recruiter',  'job_skills_1','job_skills_2',
+            'job_skills_3', 'job_skills_4', 'job_skills_5', 'job_skills_6','job_skills_7',
+            'job_skills_8', 'job_skills_9', 'job_skills_10')
             labels = {
                 'job_title': _('Job Title'),
                 'Job_Description': _('Job Description'),

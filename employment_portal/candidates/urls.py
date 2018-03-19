@@ -3,6 +3,7 @@ from . import views as core_views
 
 app_name = 'candidates'
 urlpatterns = [
+    url(r'^(?P<job_id>[0-9]+)/', core_views.candidate_job_detail, name='candidate_job_detail'),
     url(r'^candidates_landing/', core_views.candidates_landing, name='candidates_landing'),
     #url(r'^candidates_edit_profile/', core_views.candidates_edit_profile, name='candidates_edit_profile'),
     url(r'^candidate_login/', core_views.candidate_login, name='candidate_login'),

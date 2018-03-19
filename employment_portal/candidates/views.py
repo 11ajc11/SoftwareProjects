@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from candidates.models import Candidate
 from .admin import CandidateAdmin
 from company.models import Employer
@@ -7,6 +7,7 @@ from offer_solicit.models import Solicitation,Offer_Invitation
 from candidates.forms import CandidateForm
 from django.views.generic.edit import FormView
 from .admin import CandidateAdmin
+from datetime import datetime
 
 # Create your views here.
 def candidateeditprofileview(request):
@@ -94,7 +95,8 @@ def candidate_search_jobs(request):
     cand=Candidate.objects.get(user_id=uid)
     job_list=Job.objects.all()
     context={"job_list":job_list}
-    return render(request,"candidate_search_jobs.html",context)
+
+    return render(request, "candidate_search_jobs.html", context)
 
 def candidate_smart_search(request):
     return render(request,"candidate_smart_search.html")
@@ -105,9 +107,30 @@ def candidate_solicit(request):
     solicitation_list=Solicitation.objects.filter(candidate__user_id=uid)
     context={"solicitation_list":solicitation_list}
     return render(request,"candidate_solicit.html",context)
+
 def candidate_offers(request):
     uid=request.user.id
     cand=Candidate.objects.get(user_id=uid)
     offer_list=Offer_Invitation.objects.filter(candidate__user_id=uid)
     context={"offer_list":offer_list}
     return render(request,"candidate_offers.html",context)
+
+def candidate_job_detail(request, job_id):
+    user = request.user
+
+    if request.method == 'POST':
+        uid = request.user.id
+        new = Solicitation()
+        new.candidate = Candidate.objects.get(pk=uid)
+        new.job = Job.objects.get(pk=job_id)
+        new.created = datetime.now()
+        new.save()
+        uid = request.user.id
+        cand = Candidate.objects.get(user_id=uid)
+        job_list = Job.objects.all()
+        context = {"job_list": job_list}
+        return render(request, "candidate_search_jobs.html", context)
+    else:
+        thisjob=Job.objects.filter(pk=job_id)
+        context={'job':thisjob}
+        return render(request, 'candidate_job_detail.html',context)

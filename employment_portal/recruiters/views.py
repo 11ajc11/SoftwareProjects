@@ -14,8 +14,8 @@ def recruiters_postings(request):
     uid = request.user.id
     recruiter=Recruiter.objects.get(user_id=uid)
     job_list=Job.objects.filter(recruiter=recruiter)
-    context={'job_list':job_list}
-    return render(request,"recruiters_postings.html",context)
+    context={'job_list': job_list}
+    return render(request, "recruiters_postings.html", context)
 
 def recruiters_sent_offers(request):
     return render(request,"recruiters_sent_offers.html")

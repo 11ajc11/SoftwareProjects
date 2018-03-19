@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{job.job_title}}</title>
+</head>
+<h3 class="mt-0 mb-1">{{job.job_title}}</h3>
+<h3 class="mt-0 mb-1">{{job.Job_description}}</h3>
+<h3 class="mt-0 mb-1">{{job.job_skills_1}}</h3>
+<h3 class="mt-0 mb-1">{{job.job_skills_1}}</h3>
+<h3 class="mt-0 mb-1">{{job.job_skills_2}}</h3>
+<h3 class="mt-0 mb-1">{{job.job_skills_3}}</h3>
+<h3 class="mt-0 mb-1">{{job.job_skills_4}}</h3>
+<h3 class="mt-0 mb-1">{{job.job_skills_5}}</h3>
+<h3 class="mt-0 mb-1">{{job.job_skills_6}}</h3>
+<h3 class="mt-0 mb-1">{{job.job_skills_7}}</h3>
+<h3 class="mt-0 mb-1">{{job.job_skills_8}}</h3>
+<h3 class="mt-0 mb-1">{{job.job_skills_9}}</h3>
+<h3 class="mt-0 mb-1">{{job.job_skills_10}}</h3>
+<form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Solicit Job</button>
+
+</form>
+</html>

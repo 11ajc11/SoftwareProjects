@@ -42,13 +42,17 @@ class Solicitation(models.Model):
 	employer_accepted = models.NullBooleanField()
 	last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
 	created = models.DateTimeField(auto_now_add=True, auto_now=False)
-
+'''
+	def create(cls, candidate, job, last_modified):
+		solicitation = cls(candidate=candidate, job=job, last_modified = last_modified)
+		# do something with the book
+		return solicitation
+	'''
 def generate_invitation(sender, instance, created, **kwargs):
 	if instance.candidate_accepted and instance.employer_accepted:
 		Offer_Invitation.objects.create(
 			candidate=instance.candidate,
-			job=instance.job
-		)
+			job=instance.job)
 
 post_save.connect(generate_invitation, sender= Offer_Invitation)
 
