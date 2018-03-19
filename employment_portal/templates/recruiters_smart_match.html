@@ -25,82 +25,71 @@
 
     <div class="container">
       <div class="py-5 text-center">
-        <h2>View Smart Matches</h2>
-        <p class="lead">Below is an smart match blablabla this is a short explanation</p>
+        <h1 class='display-1'>View Smart Matches</h1>
+
       </div>
         
-        <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Select Posting
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Job Title 1</a>
-    <a class="dropdown-item" href="#">Job Title 2</a>
-    <a class="dropdown-item" href="#">Job Title 3</a>
-  </div>
-</div>
-        <hr>
-        <br>
-        <br>
-        <br>
+ 
         
-        
+    {%for scoreposting in scorelist%}
     <div class="card w-100 mb-4">
         <div class="media m-2">
             <div class="media-body">
-            <h4>xxXX_3l1t3_h@xx05_XXxx</h4>
+            <label class='text-muted'>User</label>
+            <h4>{{scoreposting.1.user}}</h4>
             <label class="text-muted">Bio</label>
-            <h5>hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me hire me </h5>
+            <h5>{{scoreposting.1.bio}}</h5>
             <label class='text-muted'>Skills</label>
             <ol class="list-inline">
                     <li class="list-inline-item">
-                        Skill 1
+                        {{scoreposting.1.skills_choices_1}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 2
+                <li class="list-inline-item">
+                        {{scoreposting.1.skills_choices_2}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 3
+                <li class="list-inline-item">
+                        {{scoreposting.1.skills_choices_3}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 4
+                <li class="list-inline-item">
+                        {{scoreposting.1.skills_choices_4}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 5
+                <li class="list-inline-item">
+                        {{scoreposting.1.skills_choices_5}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 1
+                <li class="list-inline-item">
+                        {{scoreposting.1.skills_choices_6}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 2
+                <li class="list-inline-item">
+                        {{scoreposting.1.skills_choices_7}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 3
+                <li class="list-inline-item">
+                        {{scoreposting.1.skills_choices_8}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 4
+                <li class="list-inline-item">
+                        {{scoreposting.1.skills_choices_9}}
                     </li>
-                    <li class="list-inline-item">
-                        Skill 5
+                <li class="list-inline-item">
+                        {{scoreposting.1.skills_choices_10}}
                     </li>
                 </ol>
-            <label class='text-muted'>Location</label>
-            <h5>Nueva York</h5>
-            
-            <label class='text-muted'>Contact Info</label>
-            <h5>iamahacker@gmail.com</h5>
+            <label class="text-muted">Score</label>
+                        <h3>{{scoreposting.0}}</h3>
+                        {%if scoreposting.0 >= 40 %}
+                        <span class="badge badge-pill badge-info">Best Fit</span>
+                        {%endif%}
             <hr>
             <label class='text-muted'>Position Desired</label>
-            <h4>Blablabla</h4>
+            <h4>{{scoreposting.1.job}}</h4>
             <div class="media mt-3">
               <a class="pr-3" href="#">
               </a>
             </div>
             <br>
-            <button class="btn btn-outline-primary">View Profile</button>
+            <a class="btn btn-outline-primary" href="{% url 'recruiters:recruiter_cand_detail' scoreposting.1.user.id job_id%}">View Profile</a>
           </div>
         </div>
     </div>
+    {%endfor%}
     </div>
 
     <!-- Bootstrap core JavaScript

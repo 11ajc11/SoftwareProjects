@@ -9,6 +9,7 @@ from django.views.generic.edit import FormView
 from .admin import CandidateAdmin
 from datetime import datetime
 from recruiters.models import Recruiter
+from django.contrib.auth import logout
 
 # Create your views here.
 def candidateeditprofileview(request):
@@ -152,8 +153,8 @@ def candidate_offers(request):
     temp=[]
     for offer in offer_list:
         recruiter=Recruiter.objects.get(Employer_Name=offer.job.Employer_Name)
-        temp.add((offer,recruiter))
-    context={"offer_list":offer_list}
+        temp.append((offer,recruiter))
+    context={"offer_list":temp}
     return render(request,"candidate_offers.html",context)
 
 def candidate_job_detail(request, job_id):
@@ -174,3 +175,6 @@ def candidate_job_detail(request, job_id):
         job=Job.objects.get(id=job_id)
         context={'job':job}
         return render(request, 'candidate_job_detail.html',context)
+def candidate_logout(request):      #Add this function in candidates\views.py
+   logout(request)
+   return render(request, "index.html")

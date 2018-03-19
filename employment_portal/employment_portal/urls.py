@@ -18,6 +18,7 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^', include('home.urls')),
     url(r'^home/', include('home.urls')),
     url(r'^user_accounts/', include('user_accounts.urls')),
     url(r'^candidates/', include('candidates.urls')),

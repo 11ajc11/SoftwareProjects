@@ -27,6 +27,8 @@ class Offer_Invitation(models.Model):
 	status = models.IntegerField(choices=STATUS_CHOICES, default=0)
 	request_reminders_sent = models.IntegerField(default=0)
 	confirmation_reminders_sent = models.IntegerField(default=0)
+	candidate_accepted = models.NullBooleanField()
+	employer_accepted = models.NullBooleanField()
 	is_active = models.BooleanField(default=1)
 	result = models.CharField(max_length=50, blank=True)
 	last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
