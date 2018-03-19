@@ -130,7 +130,7 @@
                                 {{job.job_skills_10}}
                             </li>
                         </ol>
-                    <button class="mt-2 btn btn-outline-primary">View Job</button>
+                    <a class="mt-2 btn btn-outline-primary" href="{%url 'candidates:candidate_job_detail' job.id%}">View Job</a>
 
             </li>
             {%endfor%}

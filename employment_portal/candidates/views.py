@@ -116,21 +116,20 @@ def candidate_offers(request):
     return render(request,"candidate_offers.html",context)
 
 def candidate_job_detail(request, job_id):
-    user = request.user
 
     if request.method == 'POST':
         uid = request.user.id
         new = Solicitation()
-        new.candidate = Candidate.objects.get(pk=uid)
+        new.candidate = Candidate.objects.get(user_id=uid)
         new.job = Job.objects.get(pk=job_id)
         new.created = datetime.now()
         new.save()
-        uid = request.user.id
+
         cand = Candidate.objects.get(user_id=uid)
         job_list = Job.objects.all()
         context = {"job_list": job_list}
         return render(request, "candidate_search_jobs.html", context)
     else:
-        thisjob=Job.objects.filter(pk=job_id)
-        context={'job':thisjob}
+        job=Job.objects.get(id=job_id)
+        context={'job':job}
         return render(request, 'candidate_job_detail.html',context)
