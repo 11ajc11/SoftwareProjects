@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>View All Postings</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="GeneralStyle.css" rel="stylesheet">
+  </head>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'company:cadmin_landing' %}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">View Postings</li>
+  </ol>
+</nav>
+  <body class="bg-light">
+
+    <div class="container">
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h1 class='display-4'>View Postings</h1>
+      </div>
+        
+
+    <ul class="list-group mr-5 ml-5">
+        {%for posting in posting_list%}
+        <li class="list-group-item mb-2"><div class="media">
+            <div class="media-body">
+                <label class="text-muted">Job Title</label>
+                <h4 class="mt-0 mb-1">{{posting.job_title}}</h4>
+                <label class="text-muted">Job Description</label>
+                    <p>{{posting.Job_Description}}</p>
+                <label class="text-muted">Skills</label>
+                <ol class="list-inline">
+                    <li class="list-inline-item">
+                        {{posting.job_skills_1}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{posting.job_skills_2}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{posting.job_skills_3}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{posting.job_skills_4}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{posting.job_skills_5}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{posting.job_skills_6}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{posting.job_skills_7}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{posting.job_skills_8}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{posting.job_skills_9}}
+                    </li>
+                    <li class="list-inline-item">
+                        {{posting.job_skills_10}}
+                    </li>
+                </ol>
+                {{posting.recruiter}}
+            </div>
+            <a href="{% url 'company:cadmin_edit_posting' %}"  class="btn-sm btn-outline-primary ml-2">Edit</a>
+            </div>
+        </li>
+        {%endfor%}
+    </ul>
+
+        
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2017-2018 Company Name</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="../../../../assets/js/vendor/holder.min.js"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+  </body>
+</html>

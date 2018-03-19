@@ -1,0 +1,32 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sign In</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+  </head>
+    
+  <body class="text-center">
+      <div class='container'>
+      <h1 class='display-2 mt-5'>Candidate Log In</h1>
+      <form method="post">
+        {% csrf_token %}
+        {{ form}}
+        <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Log In</button>
+        <br>
+        <a class="text-muted" href="{% url 'user_accounts:candidatesignup' %}">Don't have account? Click Here</a>
+    </form>
+    </div>
+  </body>
+      
+</html>

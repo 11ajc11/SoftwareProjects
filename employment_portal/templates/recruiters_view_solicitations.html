@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Checkout example for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="GeneralStyle.css" rel="stylesheet">
+  </head>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'recruiters:recruiters_landing' %}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">View Solicitations</li>
+  </ol>
+</nav>
+  <body class="bg-light">
+
+    <div class="container">
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h2>View Solicitations</h2>
+      </div>
+    {%for solicitation in solicitation_list%}
+    <div class="card w-100 mb-4">
+        <div class="media m-2">
+            <div class="media-body">
+            <label class="text-muted">Username</label>
+            <h4>{{solicitation.candidate.user}}</h4>
+            <label class="text-muted">Bio</label>
+            <h5>{{solicitation.candidate.bio }}</h5>
+            <label class='text-muted'>Skills</label>
+            <ol class="list-inline">
+                    <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_1}}
+                    </li>
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_2}}
+                    </li>
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_3}}
+                    </li>
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_4}}
+                    </li>
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_5}}
+                    </li>
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_6}}
+                    </li>
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_7}}
+                    </li>
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_8}}
+                    </li>
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_9}}
+                    </li>
+                <li class="list-inline-item">
+                        {{solicitation.candidate.skills_choices_10}}
+                    </li>
+                </ol>
+            <hr>
+            <label class='text-muted'>Position Desired</label>
+            <div class="media mt-3">
+              <a class="pr-3" href="#">
+              </a>
+              <div class="media-body">
+                <h5 class="mt-0">{{solicitation.job.job_title}}</h5>
+                  <h6>{{solicitation.job.Job_Description}}</h6>
+              </div>
+            </div>
+            <br>
+            <!--<button class="btn btn-warning">Delete Solicitation</button>-->
+          </div>
+        </div>
+    </div>
+        {%endfor%}
+        
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="../../../../assets/js/vendor/holder.min.js"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+  </body>
+</html>

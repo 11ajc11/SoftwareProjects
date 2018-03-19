@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Checkout example for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="GeneralStyle.css" rel="stylesheet">
+  </head>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Home</li>
+  </ol>
+</nav>
+  <body class="bg-light">
+
+    <div class="container">
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h1 class="display-1">{{name}}</h1><a class="btn-sm btn-secondary" href="{% url 'company:cadmin_edit_profile' %}" >Edit Profile</a>
+        <p class="lead">{{bio}}</p>
+      </div>
+
+      <div class="row">
+        <div class="col order-md-1">
+          <h4 class="mb-3">Company Info<h4>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">Website</label>
+                <span class="text-muted">{{website}}</span>
+              </div>
+            </div>
+        <hr class="mb-4">
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="col-sm-4 "><a class="btn-fluid btn-primary btn-lg mt-1 ml-1 mr-1" href="{% url 'company:cadmin_add_posting' %}">Add Posting</a></div>
+        <div class="col-sm-4 "><a  class="btn-fluid btn-primary btn-lg mt-1 ml-1 mr-1"href="{% url 'company:cadmin_view_postings' %}" >View Postings</a></div>
+        <div class="col-sm-4 "><a class="btn-fluid btn-primary btn-lg mt-1 ml-1 mr-1" href="{% url 'company:cadmin_view_recruiters' %}">View Recruiters</a></div>
+    </div>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2017-2018 Company Name</p>
+      </footer>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="../../../../assets/js/vendor/holder.min.js"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+  </body>
+</html>

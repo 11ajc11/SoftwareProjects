@@ -1,0 +1,163 @@
+<!Doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Search Jobs</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
+    <link href="searchTable.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<body class="bg-light" vertical-align="middle">
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">HRSite</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'candidates:candidates_landing' %}">Profile </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'candidates:candidate_search_jobs' %}">Jobs
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'candidates:candidate_smart_search' %}">Smart Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'candidates:candidate_search_companies' %}">Companies</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log Out</button>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <div class="container">
+        <div class="row">
+            <div id="filter-panel" class="filter-panel">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <label class="filter-col" style="margin-right:0;" for="pref-perpage">Rows per page:</label>
+                                <select id="pref-perpage" class="form-control">
+                                    <option selected="selected" value="10">15</option>
+                                    <option value="30">30</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                            <!-- form group [rows] -->
+                            <div class="form-group">
+                                <label class="filter-col" style="margin-right:0;" for="pref-search">Search:</label>
+                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+                            </div>
+                            <!-- form group [search] -->
+                            <div class="form-group">
+                                <label class="filter-col" style="margin-right:0;" for="pref-orderby">Order by:</label>
+                                <select id="pref-orderby" class="form-control">
+                                    <option>Descendent</option>
+                                </select>
+                            </div>
+                            <!-- form group [order by] -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <ul id="myUL" class="list-group mr-5 ml-5 mt-5">
+            {%for job in job_list%}
+            <li class="list-group-item mb-2">
+                        <h3 class="mt-0 mb-1">{{job.job_title}}</h3>
+                        <h5 class="mt-0 mb-1"> </h5>
+                        <p>{{job.Job_Description}}</p>
+                        <label class="text-muted">Skills </label>
+                        <ol class="list-inline">
+                            <li class="list-inline-item">
+                                {{job.job_skills_1}}
+                            </li>                        
+                            <li class="list-inline-item">
+                                {{job.job_skills_2}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{job.job_skills_3}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{job.job_skills_4}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{job.job_skills_5}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{job.job_skills_6}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{job.job_skills_7}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{job.job_skills_8}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{job.job_skills_9}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{job.job_skills_10}}
+                            </li>
+                        </ol>
+                    <a class="mt-2 btn btn-outline-primary" href="{%url 'candidates:candidate_job_detail' job.id%}">View Job</a>
+
+            </li>
+            {%endfor%}
+        </ul>
+    </div>
+    
+    
+    <script>
+        function myFunction() {
+        // Declare variables
+        var input, filter, ul, li, a, i;
+        input = document.getElementById('myInput');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName('li');
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+        }
+    </script>
+</body>
+
+</html>

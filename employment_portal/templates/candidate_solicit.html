@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Applied To</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="view_recruiters.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+<header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">HRSite</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'candidates:candidates_landing' %}">Profile
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'candidates:candidate_search_jobs' %}">Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'candidates:candidate_smart_search' %}">Smart Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'candidates:candidate_search_companies' %}">Companies</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log Out</button>
+            </div>
+        </nav>
+    </header>
+    <div class="container mt-4">
+        <div class="py-5 text-center">
+            <h1 class='display-2'>Solicitation Records</h1>
+        </div>
+
+
+        <ul class="list-group mr-5 ml-5">
+            {%for solicitation in solicitation_list%}
+            <li class="list-group-item mb-2">
+                <div class="media">
+                    <div class="media-body">
+                        <label class='text-muted'>Job Title</label>
+                        <h5 class="mt-0 mb-1"> {{solicitation.job.job_title}}</h5>
+                        <label class='text-muted'>Job Description</label>
+                        <p>{{solicitation.job.Job_Description}}</p>
+                        <label class="text-muted">Skills </label>
+                        <ol class="list-inline">
+                            <li class="list-inline-item">
+                                {{solicitation.job.job_skills_1}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{solicitation.job.job_skills_2}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{solicitation.job.job_skills_3}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{solicitation.job.job_skills_4}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{solicitation.job.job_skills_5}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{solicitation.job.job_skills_6}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{solicitation.job.job_skills_7}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{solicitation.job.job_skills_8}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{solicitation.job.job_skills_9}}
+                            </li>
+                            <li class="list-inline-item">
+                                {{solicitation.job.job_skills_10}}
+                            </li>
+                        </ol>
+                         <label class="text-muted mt-2">Company</label>
+                        <p>{{solicitation.job.Employer_Name}}</p>
+                    </div>
+                </div>
+            </li>
+            {%endfor%}
+        </ul>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="../../../../assets/js/vendor/holder.min.js"></script>
+    <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function () {
+                'use strict';
+
+                window.addEventListener('load', function () {
+                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    var forms = document.getElementsByClassName('needs-validation');
+
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms, function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+    </script>
+</body>
+
+</html>
