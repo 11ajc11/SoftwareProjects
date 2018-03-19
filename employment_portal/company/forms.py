@@ -55,8 +55,8 @@ class AddPostingForm(ModelForm):
                 },
             }
             widgets={
-            'Job_Description' : Textarea (attrs={'cols':40,'rows':15,}),
-            'job_title' : TextInput (attrs={'cols':40,'rows':1,}),
+            'Job_Description' : Textarea (attrs={'cols':40,'rows':15,'class':"input-group-text w-100"}),
+            'job_title' : TextInput (attrs={'cols':40,'rows':1,'class':"input-group-text w-100"}),
             }
 
 class AddRecruiterForm(UserCreationForm):

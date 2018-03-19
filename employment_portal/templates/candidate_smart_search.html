@@ -56,9 +56,10 @@
 
     <br>
     <div class="container">
-
+{%if scorelist%}
         <ul class="list-group mr-5 ml-5">
             {%for postingscore in scorelist%}
+            
             <li class="list-group-item mb-2">
                 <div class="media">
                     <div class="media-body">
@@ -108,9 +109,13 @@
                     <a class="mt-2 btn btn-outline-primary" href="{%url 'candidates:candidate_job_detail' postingscore.1.id%}">View Job</a>
                 </div>
             </li>
+           
             {%endfor%}
 
         </ul>
+         {%else%}
+            <h1 class='display-1'>No Acceptable Matches Found</h1>
+            {%endif%}
     </div>
 </body>
 

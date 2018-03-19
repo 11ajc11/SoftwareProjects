@@ -32,13 +32,13 @@ def recruiters_smart_match(request,job_id):
     scorelist = []
     for cand in candlist:
         rating = 0
-        if cand.skills_choices_1 == job.job_skills_1 or job.job_skills_2:
+        if (cand.skills_choices_1 == job.job_skills_1) or (cand.skills_choices_1 == job.job_skills_2):
             rating += 10
-        if cand.skills_choices_2 == job.job_skills_2 or job.job_skills_3:
+        if (cand.skills_choices_2 == job.job_skills_2) or (cand.skills_choices_1 == job.job_skills_3):
             rating += 9
-        if cand.skills_choices_3 == job.job_skills_3 or job.job_skills_4:
+        if (cand.skills_choices_3 == job.job_skills_3) or (cand.skills_choices_1 == job.job_skills_4):
             rating += 8
-        if cand.skills_choices_4 == job.job_skills_4 or job.job_skills_5:
+        if (cand.skills_choices_4 == job.job_skills_4) or (cand.skills_choices_1 == job.job_skills_5):
             rating += 7
         if cand.skills_choices_5 == job.job_skills_5:
             rating += 6
@@ -53,7 +53,7 @@ def recruiters_smart_match(request,job_id):
         if cand.skills_choices_10 == job.job_skills_10:
             rating += 1
 
-        if rating >= 20:
+        if rating >= 30:
            scorelist.append((rating,cand))
     scorelist=sorted(scorelist, key=lambda temp: temp[0], reverse=True)
     context={'scorelist':scorelist, 'job_id':job_id}

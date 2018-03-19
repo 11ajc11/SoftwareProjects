@@ -25,7 +25,9 @@
     <div class="container">
       <div class="py-5 text-center">
         <h2 class='display-2'>Add Job Posting</h2>
+          <p class='text-muted'>Your chances of finding a candidate are best if you don't repeat skills!</p>
       </div>
+        
 
       <div class="row">
         <div class="col-xl">
@@ -34,10 +36,11 @@
             {% csrf_token %}
             {{form.as_p}}
             
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+        <button class="btn btn-lg btn-primary btn-block mb-4" type="submit">Save</button>
         {% endblock %}
         </div>
       </div>
+        </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

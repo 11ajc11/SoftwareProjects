@@ -1,4 +1,5 @@
 from django import forms
+
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -9,6 +10,12 @@ class UserSignUp(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'password1', 'password2', 'email',)
+        widgets={
+        'username' : forms.TextInput (attrs={'cols':40,'rows':1,'class': "form-control",'placeholder':'Username'}),
+        'password1' : forms.TextInput (attrs={'cols':40,'rows':1,'class': "form-control",'placeholder':'Password'}),
+        'password2' : forms.TextInput (attrs={'cols':40,'rows':1,'class': "form-control",'placeholder':'Password'}),
+        }
+
 
 
 

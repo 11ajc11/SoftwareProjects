@@ -112,28 +112,28 @@ def candidate_smart_search(request):
     scorelist=[]
     for job in joblist:
         rating = 0
-        if job.job_skills_1.strip() == Cand.skills_choices_1.strip() or Cand.skills_choices_2.strip():
+        if (job.job_skills_1 == Cand.skills_choices_1) or (job.job_skills_1 ==Cand.skills_choices_2):
             rating += 10
-        if job.job_skills_2.strip() == Cand.skills_choices_2.strip() or Cand.skills_choices_3.strip():
+        if (job.job_skills_2 == Cand.skills_choices_2) or (job.job_skills_1 ==Cand.skills_choices_3):
             rating += 9
-        if job.job_skills_3.strip() == Cand.skills_choices_3.strip() or Cand.skills_choices_4.strip():
+        if (job.job_skills_3 == Cand.skills_choices_3) or (job.job_skills_1 ==Cand.skills_choices_4):
             rating += 8
-        if job.job_skills_4.strip() == Cand.skills_choices_4.strip() or Cand.skills_choices_5.strip():
+        if (job.job_skills_4 == Cand.skills_choices_4) or (job.job_skills_1 ==Cand.skills_choices_5):
             rating += 7
-        if job.job_skills_5.strip() == Cand.skills_choices_5.strip():
+        if job.job_skills_5 == Cand.skills_choices_5:
             rating += 6
-        if job.job_skills_6.strip() == Cand.skills_choices_6.strip():
+        if job.job_skills_6 == Cand.skills_choices_6:
             rating += 5
-        if job.job_skills_7.strip() == Cand.skills_choices_7.strip():
+        if job.job_skills_7 == Cand.skills_choices_7:
             rating += 4
-        if job.job_skills_8.strip() == Cand.skills_choices_8.strip():
+        if job.job_skills_8 == Cand.skills_choices_8:
             rating += 3
-        if job.job_skills_9.strip() == Cand.skills_choices_9.strip():
+        if job.job_skills_9 == Cand.skills_choices_9:
             rating += 2
-        if job.job_skills_10.strip() == Cand.skills_choices_10.strip():
+        if job.job_skills_10 == Cand.skills_choices_10:
             rating += 1
 
-        if rating >= 5:
+        if rating >= 40:
             scorelist.append((rating,job))
     scorelist=sorted(scorelist, key=lambda temp: temp[0], reverse=True)
     context={'scorelist':scorelist}

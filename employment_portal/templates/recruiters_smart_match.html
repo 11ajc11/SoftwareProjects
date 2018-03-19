@@ -30,7 +30,7 @@
       </div>
         
  
-        
+        {%if scorelist%}
     {%for scoreposting in scorelist%}
     <div class="card w-100 mb-4">
         <div class="media m-2">
@@ -90,6 +90,9 @@
         </div>
     </div>
     {%endfor%}
+        {%else%}
+            <h1 class='display-1'>No Acceptable Matches Found</h1>
+            {%endif%}
     </div>
 
     <!-- Bootstrap core JavaScript
