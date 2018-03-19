@@ -17,34 +17,16 @@
   </head>
     
   <body class="text-center">
-      <h1>Candidate Log In</h1>
+      <div class='container'>
+      <h1 class='display-2 mt-5'>Candidate Log In</h1>
       <form method="post">
         {% csrf_token %}
         {{ form}}
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+        <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Log In</button>
         <br>
         <a class="text-muted" href="{% url 'user_accounts:candidatesignup' %}">Don't have account? Click Here</a>
     </form>
+    </div>
   </body>
+      
 </html>
-{% comment %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Candidate Log In</title>
-</head>
-<body>
-{% block content %}
-  <h2>Candidate Log In</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Log In</button>
-    </form>
-{% endblock %}
-<a href="{% url 'user_accounts:candidatesignup' %}">Don't have account? Click Here</a>
-</body>
-</html>
-{% endcomment %}

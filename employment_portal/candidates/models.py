@@ -28,52 +28,52 @@ class Candidate(models.Model):
 	Graduation = models.CharField(choices=Graduation_Choices, max_length= 40, blank= True)
 	skills_choices_1 = models.CharField(
 		max_length= 100,
-		choices= Skills_choices, unique= True,
+		choices= Skills_choices,
         null=True
 	)
 	skills_choices_2 = models.CharField(
 		max_length=100,
-		choices=Skills_choices, unique=True,
+		choices=Skills_choices,
 		null=True
 	)
 	skills_choices_3 = models.CharField(
 		max_length=100,
-		choices=Skills_choices, unique=True,
+		choices=Skills_choices,
 		null=True
 	)
 	skills_choices_4 = models.CharField(
 		max_length=100,
-		choices=Skills_choices, unique=True,
+		choices=Skills_choices,
 		null=True
 	)
 	skills_choices_5 = models.CharField(
 		max_length=100,
-		choices=Skills_choices, unique=True,
+		choices=Skills_choices,
 		null=True
 	)
 	skills_choices_6 = models.CharField(
 		max_length=100,
-		choices=Skills_choices, unique=True,
+		choices=Skills_choices,
 		null= True
 	)
 	skills_choices_7 = models.CharField(
 		max_length=100,
-		choices=Skills_choices, unique=True,
+		choices=Skills_choices,
 		null = True
 	)
 	skills_choices_8 = models.CharField(
 		max_length=100,
-		choices=Skills_choices, unique=True,
+		choices=Skills_choices,
 		null = True
 	)
 	skills_choices_9 = models.CharField(
 		max_length=100,
-		choices=Skills_choices, unique=True,
+		choices=Skills_choices,
 		null = True
 	)
 	skills_choices_10 = models.CharField(
 		max_length=100,
-		choices=Skills_choices, unique=True,
+		choices=Skills_choices,
 		null = True
 	)
 
