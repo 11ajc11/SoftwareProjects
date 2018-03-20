@@ -14,5 +14,5 @@ urlpatterns = [
     url(r'^candidate_solicit/', core_views.candidate_solicit, name='candidate_solicit'),
     url(r'^candidate_offers/', core_views.candidate_offers, name='candidate_offers'),
     url(r'^candidateeditprofile/', core_views.candidateeditprofileview, name='candidateeditprofile'),
-    url(r'^candidate_logout/', core_views.candidate_logout, name='candidate_logout'),
+    url(r'^', core_views.candidate_logout, name='candidate_logout'),
 ]

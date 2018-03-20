@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+
 from candidates.models import Candidate
 from .admin import CandidateAdmin
 from company.models import Employer
-from postings.models import Job,JobRequirements
+from postings.models import Job, JobRequirements
 from offer_solicit.models import Solicitation,Offer_Invitation
 from candidates.forms import CandidateForm
 from django.views.generic.edit import FormView
@@ -10,6 +11,7 @@ from .admin import CandidateAdmin
 from datetime import datetime
 from recruiters.models import Recruiter
 from django.contrib.auth import logout
+from home import views
 
 # Create your views here.
 def candidateeditprofileview(request):
@@ -177,4 +179,4 @@ def candidate_job_detail(request, job_id):
         return render(request, 'candidate_job_detail.html',context)
 def candidate_logout(request):      #Add this function in candidates\views.py
    logout(request)
-   return render(request, "index.html")
+   return render(request, 'index.html')

@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.contrib.auth import logout
 from django.contrib import messages
 from django.views.generic.edit import FormView
 from .forms import CompanyForm, AddPostingForm,AddRecruiterForm
@@ -137,3 +138,7 @@ def cadmin_view_recruiters(request):
     recruiter_list=Recruiter.objects.filter(Employer_Name__user_id=uid)
     context={'recruiter_list':recruiter_list}
     return render(request, 'cadmin_view_recruiters.html',context)
+
+def cadmin_logout(request):
+    logout(request)
+    return render(request, 'index.html')
