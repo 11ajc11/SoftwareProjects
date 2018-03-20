@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth import logout
 from .models import Recruiter
 from company.models import Employer
 from recruiters.models import Recruiter
@@ -88,3 +89,7 @@ def recruiter_cand_detail(request, cand_id, job_id):
         job=Job.objects.get(id=job_id)
         context={'cand':cand, 'job':job}
         return render(request, 'recruiters_cand_detail.html',context)
+
+def recruiter_logout(request):
+    logout(request)
+    return render(request, 'index.html')

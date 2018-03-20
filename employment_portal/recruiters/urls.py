@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^recruiter_cand_detail/(?P<cand_id>[0-9]+)/(?P<job_id>[0-9]+)/', core_views.recruiter_cand_detail, name='recruiter_cand_detail'),
     url(r'^recruiters_view_post/', core_views.recruiters_view_post, name='recruiters_view_post'),
     url(r'^recruiters_view_solicitations/', core_views.recruiters_view_solicitations, name='recruiters_view_solicitations'),
+    url(r'^', core_views.recruiter_logout, name='recruiter_logout'),
 ]
